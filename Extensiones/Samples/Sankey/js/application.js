@@ -129,7 +129,7 @@
   }
 
   function configure() {
-    const popupUrl=`${window.location.origin}/extensions-api-master/Samples/Sankey/dialog.html`;
+    const popupUrl=`${window.location.origin}/Extensiones/Samples/Sankey/dialog.html`;
     let defaultPayload="";
     tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:600, width:500 }).then((closePayload) => {
       drawChartJS();
