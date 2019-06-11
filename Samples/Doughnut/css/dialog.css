@@ -1,0 +1,20 @@
+.container {
+    padding: 0px;
+}
+
+.row {
+    margin: 10px;
+}
+
+.page-header {
+    background-color: #DDD;
+    padding: 10px;
+}
+
+.btn {
+    margin: 0 10 0 0;
+}
+
+.dialog-buttons {
+    margin-top: 100px;
+}
