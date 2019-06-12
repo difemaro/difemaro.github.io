@@ -115,7 +115,7 @@
 			var FillChart = true;
 		}else{
 			var colors = ["rgba(166,206,227,1)", "rgba(178,223,138,1)", "rgba(251,154,153,1)", "rgba(253,191,111,1)",
-						  "rgba(202,178,214,1)", "rgba(255,255,153,1)", "rgba(31,120,180,0.2)", "rgba(51,160,44,1)"];
+						  "rgba(202,178,214,1)", "rgba(255,255,153,1)", "rgba(31,120,180,1)", "rgba(51,160,44,1)"];
 			var FillChart = false;
 		}
 		
@@ -169,7 +169,8 @@
 			datasetrow = {label: label[i],
 						  backgroundColor: colors[i],
 						  data: Object.values(dataserie),
-						  fill: FillChart};
+						  fill: FillChart,
+						  borderColor:colors[i]};
 			console.log("Dataserow");
 			console.log(datasetrow);
 			dataset.push(datasetrow);
