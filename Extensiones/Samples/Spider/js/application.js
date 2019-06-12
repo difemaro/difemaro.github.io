@@ -142,9 +142,9 @@
 					console.log(worksheetData[j][categoryColumnNumberTo-1].formattedValue);
 					while (worksheetData[j][categoryColumnNumberTo-1].formattedValue != labels[k]){
 						k=k+1;
-						console.log(labels[k]);
 					}
 					console.log("k:" + k);
+					console.log(labels[k]);
 					dataserie[k] = dataserie[k] + worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
