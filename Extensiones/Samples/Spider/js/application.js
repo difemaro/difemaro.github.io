@@ -131,9 +131,10 @@
 
 		//Definir los valores para cada serie
 		var dataserie = [];
-		for (var i=0;i<label.lenght;i++){
+		for (var i=0;i<labels.lenght;i++){
 			dataserie.push(0);
 		}
+		console.log(dataserie);
 		
 		var k=0;
 				
