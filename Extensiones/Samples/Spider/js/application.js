@@ -136,9 +136,17 @@
 					 datasets: dataset
 					};
 		
-		
+		console.log("dataset")
 		console.log(dataset);
+		console.log("MarksData")
 		console.log(marksData);
+		console.log("WorksheetData")
+		console.log(worksheetData);
+		console.log("Label")
+		console.log(Label);
+		console.log("Labels")
+		console.log(Labels);
+		
 		
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
