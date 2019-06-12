@@ -109,7 +109,7 @@
 			if (label.length == 0){
 				label.push(worksheetData[i][categoryColumnNumber-1].formattedValue);
 			}
-			if (label.includes(worksheetData[i][categoryColumnNumber-1].formattedValue)){
+			if (label.includes(worksheetData[i][categoryColumnNumber-1].formattedValue) == false){
 				label.push(worksheetData[i][categoryColumnNumber-1].formattedValue);
 			}
 		}
@@ -119,7 +119,7 @@
 			if (labels.length == 0){
 				labels.push(worksheetData[i][categoryColumnNumberTo-1].formattedValue);
 			}
-			if (labels.includes(worksheetData[i][categoryColumnNumberTo-1].formattedValue)){
+			if (labels.includes(worksheetData[i][categoryColumnNumberTo-1].formattedValue) == false ){
 				labels.push(worksheetData[i][categoryColumnNumberTo-1].formattedValue);
 			}
 		}
@@ -142,7 +142,7 @@
 			dataserie.fill(0);
 			for (var j=0; j<worksheetData.length; i++){
 				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i]){
-					dataserie[java.util.Arrays.asList(labels).indexOf(worksheetData[j][categoryColumnNumberTo-1].formattedValue)] += worksheetData[j][valueColumnNumber-1].value;
+					dataserie[Arrays.asList(labels).indexOf(worksheetData[j][categoryColumnNumberTo-1].formattedValue)] += worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
 			datasetrow = {label: label[i],
