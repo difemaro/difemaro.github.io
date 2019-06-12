@@ -4,7 +4,6 @@
 
     $(document).ready(function () {
         tableau.extensions.initializeDialogAsync().then(function (openPayload) {
-            console.log("ExitoDialogo");
 			buildDialog();
         });
     });
@@ -26,7 +25,6 @@
         $('#cancel').click(closeDialog);
         $('#save').click(saveButton);
         $('.select').select2();
-		console.log("ConstruirDialogo");
     }
 
     function columnsUpdate() {
@@ -55,6 +53,7 @@
             $("#selectCategory").val(tableau.extensions.settings.get("categoryColumnNumber"));
 			$("#selectCategoryTo").val(tableau.extensions.settings.get("categoryColumnNumberTo"));
             $("#selectValue").val(tableau.extensions.settings.get("valueColumnNumber"));
+			$("#selectFill").val(tableau.extensions.settings.get("filled"));
         });
 		console.log("Exito4");
     }
@@ -73,9 +72,8 @@
         tableau.extensions.settings.set("categoryColumnNumber", $("#selectCategoryFrom").val());
 		tableau.extensions.settings.set("categoryColumnNumberTo", $("#selectCategoryTo").val());
         tableau.extensions.settings.set("valueColumnNumber", $("#selectValue").val());
-		console.log("Exito2");
-        tableau.extensions.settings.saveAsync().then((currentSettings) => {
-            console.log("Exito3");
+		tableau.extensions.settings.set("filled", $("#selectFill").val());
+		tableau.extensions.settings.saveAsync().then((currentSettings) => {
 			tableau.extensions.ui.closeDialog("10");
         });
     }
