@@ -101,8 +101,8 @@
 		var datasetrow = {};
 		var dataset = [];
 		var marksData = {};
-		var colors = ['#99a6cee3', '#99b2df8a', '#99fb9a99', '#99fdbf6f',
-					  '#99cab2d6', '#99ffff99', '#991f78b4', '#9933a02c'];	
+		var colors = ['#33a6cee3', '#33b2df8a', '#33fb9a99', '#33fdbf6f',
+					  '#33cab2d6', '#33ffff99', '#331f78b4', '#3333a02c'];	
 		
 		//Definir las series del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
