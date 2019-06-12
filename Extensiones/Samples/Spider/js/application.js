@@ -101,10 +101,8 @@
 		var datasetrow = {};
 		var dataset = [];
 		var marksData = {};
-		var colors = ["rgba(200,0,0,0.2)", '#b2df8a', '#fb9a99', '#fdbf6f',
+		var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f',
 					  '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];	
-
-		
 		
 		//Definir las series del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
@@ -152,6 +150,7 @@
 			console.log("Dataserie");
 			console.log(dataserie);
 			datasetrow = {label: label[i],
+						  backgroundColor:color[i],
 						  data: Object.values(dataserie)};
 			console.log("Dataserow");
 			console.log(datasetrow);
