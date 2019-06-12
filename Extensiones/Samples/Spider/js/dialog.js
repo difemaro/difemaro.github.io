@@ -43,6 +43,7 @@
             $("#selectCategoryFrom").text("");
             $("#selectCategoryTo").text("");			
             $("#selectValue").text("");
+			$("#selectFill").text("");
             var counter = 1;
             worksheetColumns.forEach(function (current_value) {
                 $("#selectCategoryFrom").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
@@ -50,6 +51,10 @@
                 $("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
                 counter++;
             });
+			
+			$("#selectFill").append("<option value='" + counter + "'>"+"Yes"+"</option>");
+			$("#selectFill").append("<option value='" + counter + "'>"+"No"+"</option>");
+			
             $("#selectCategory").val(tableau.extensions.settings.get("categoryColumnNumber"));
 			$("#selectCategoryTo").val(tableau.extensions.settings.get("categoryColumnNumberTo"));
             $("#selectValue").val(tableau.extensions.settings.get("valueColumnNumber"));
@@ -66,7 +71,7 @@
     }
 
     function saveButton() {
-		console.log($("#selectWorksheet").val());
+		console.log($("#selectWorksheet").val()); 
         tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
         tableau.extensions.settings.set("categoryColumnNumber", $("#selectCategoryFrom").val());
 		tableau.extensions.settings.set("categoryColumnNumberTo", $("#selectCategoryTo").val());

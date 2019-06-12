@@ -178,7 +178,6 @@
 		marksData = {labels: labels,
 					 datasets: dataset
 					};
-		
 
 		console.log("MarksData");
 		console.log(marksData);
