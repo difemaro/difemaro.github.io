@@ -52,8 +52,8 @@
                 counter++;
             });
 			
-			$("#selectFill").append("<option value='" + counter + "'>"+"Yes"+"</option>");
-			$("#selectFill").append("<option value='" + counter + "'>"+"No"+"</option>");
+			$("#selectFill").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
+			$("#selectFill").append("<option value='" + 2 + "'>"+"No"+"</option>");
 			
             $("#selectCategory").val(tableau.extensions.settings.get("categoryColumnNumber"));
 			$("#selectCategoryTo").val(tableau.extensions.settings.get("categoryColumnNumberTo"));
