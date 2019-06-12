@@ -130,6 +130,7 @@
 				label.push(worksheetData[i][categoryColumnNumber-1].formattedValue);
 			}
 		}
+		label.sort();
 		
 		//Definir las categorias del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
@@ -140,6 +141,7 @@
 				labels.push(worksheetData[i][categoryColumnNumberTo-1].formattedValue);
 			}
 		}
+		labels.sort();
 
 		//console.log("Label");
 		//console.log(label);
