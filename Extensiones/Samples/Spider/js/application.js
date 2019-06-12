@@ -130,18 +130,12 @@
 		console.log(labels);
 
 		//Definir los valores para cada serie
-		var dataserie = [];
-		for (var i=0;i<labels.lenght;i++){
-			dataserie.push(0);
-		}
-		console.log(dataserie);
-		
+		var dataserie = Array(labels.length);
+				
 		var k=0;
 				
 		for (var i=0; i<label.length; i++) {
-			for (var m=0;m<dataserie.length;m++){
-				dataserie[m]=0;
-			}
+			dataserie.fill(0);
 			console.log(dataserie);
 			for (var j=0; j<worksheetData.length; j++){
 				console.log("j:" + j);
