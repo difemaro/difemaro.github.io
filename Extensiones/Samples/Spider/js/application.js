@@ -101,6 +101,7 @@
 		var datasetrow = {};
 		var dataset = [];
 		var marksData = {};
+		var dataserie = [];
 		
 		
 		//Definir las series del Radial Chart
