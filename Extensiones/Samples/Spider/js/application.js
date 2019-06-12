@@ -144,9 +144,9 @@
 					dataserie[k] += worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
-			console.log(dataserie);
 			datasetrow = {label: label[i],
 						  data: dataserie};
+			console.log(datasetrow);
 			dataset.push(datasetrow);
 		}
 
