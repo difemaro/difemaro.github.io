@@ -106,6 +106,9 @@
 		
 		//Definir las series del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
+			if (label.length == 0){
+				label.push(worksheetData[i][categoryColumnNumber-1].formattedValue);
+			}
 			if (label.includes(worksheetData[i][categoryColumnNumber-1].formattedValue)){
 				label.push(worksheetData[i][categoryColumnNumber-1].formattedValue);
 			}
@@ -113,6 +116,9 @@
 		
 		//Definir las categorias del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
+			if (labels.length == 0){
+				labels.push(worksheetData[i][categoryColumnNumberTo-1].formattedValue);
+			}
 			if (labels.includes(worksheetData[i][categoryColumnNumberTo-1].formattedValue)){
 				labels.push(worksheetData[i][categoryColumnNumberTo-1].formattedValue);
 			}
