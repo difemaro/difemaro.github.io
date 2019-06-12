@@ -130,7 +130,11 @@
 		console.log(labels);
 
 		//Definir los valores para cada serie
-		var dataserie = Array(label.length);
+		var dataserie = [];
+		for (var i=0;i<label.lenght;i++){
+			dataserie.push(0);
+		}
+		
 		var k=0;
 				
 		for (var i=0; i<label.length; i++) {
