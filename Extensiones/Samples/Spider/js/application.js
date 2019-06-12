@@ -150,7 +150,7 @@
 			console.log("Dataserie");
 			console.log(dataserie);
 			datasetrow = {label: label[i],
-						  backgroundColor: colors[i].value,
+						  backgroundColor: colors[i],
 						  data: Object.values(dataserie)};
 			console.log("Dataserow");
 			console.log(datasetrow);
