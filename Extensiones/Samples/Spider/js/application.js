@@ -134,7 +134,7 @@
 		var k=0;
 				
 		for (var i=0; i<label.length; i++) {
-			for (m=1;i<dataserie.length;m++){
+			for (var m=0;m<dataserie.length;m++){
 				dataserie[m]=0;
 			}
 			for (var j=0; j<worksheetData.length; j++){
