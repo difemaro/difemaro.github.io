@@ -124,12 +124,6 @@
 			}
 		}
 
-		console.log("dataset");
-		console.log(dataset);
-		console.log("MarksData");
-		console.log(marksData);
-		console.log("WorksheetData");
-		console.log(worksheetData);
 		console.log("Label");
 		console.log(label);
 		console.log("Labels");
@@ -137,22 +131,34 @@
 
 		//Definir los valores para cada serie
 		var dataserie = Array(label.length);
+		var k=0;
 				
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
 			for (var j=0; j<worksheetData.length; i++){
 				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i]){
-					dataserie[Arrays.asList(labels).indexOf(worksheetData[j][categoryColumnNumberTo-1].formattedValue)] += worksheetData[j][valueColumnNumber-1].value;
+					k-0;
+					while (worksheetData[j][categoryColumnNumberTo-1].formattedValue != labels[k]){
+						k=k+1;
+					}
+					dataserie[k] += worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
 			datasetrow = {label: label[i],
 						  data: dataserie};
 			dataset.push(datasetrow);
 		}
+
+		console.log("dataset");
+		console.log(dataset);
+
 		marksData = {labels: labels,
 					 datasets: dataset
 					};
 		
+
+		console.log("MarksData");
+		console.log(marksData);
 		
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
