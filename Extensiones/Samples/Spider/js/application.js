@@ -136,6 +136,7 @@
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
 			for (var j=0; j<worksheetData.length; j++){
+				console.log(j);
 				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i]){
 					k=0;
 					console.log(worksheetData[j][categoryColumnNumberTo-1].formattedValue);
