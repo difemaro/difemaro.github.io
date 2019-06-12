@@ -55,7 +55,6 @@
             $("#selectValue").val(tableau.extensions.settings.get("valueColumnNumber"));
 			$("#selectFill").val(tableau.extensions.settings.get("filled"));
         });
-		console.log("Exito4");
     }
 
     function reloadSettings() {
