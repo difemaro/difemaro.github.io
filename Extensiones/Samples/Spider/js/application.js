@@ -143,9 +143,9 @@
 		console.log("WorksheetData")
 		console.log(worksheetData);
 		console.log("Label")
-		console.log(Label);
+		console.log(label);
 		console.log("Labels")
-		console.log(Labels);
+		console.log(labels);
 		
 		
 		var radarChart = new Chart($("#myChart"), {
