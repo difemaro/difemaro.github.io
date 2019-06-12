@@ -138,6 +138,8 @@
 			for (var j=0; j<worksheetData.length; j++){
 				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i]){
 					k=0;
+					console.log(worksheetData[j][categoryColumnNumberTo-1].formattedValue);
+					console.log(labels[k]);
 					while (worksheetData[j][categoryColumnNumberTo-1].formattedValue != labels[k]){
 						k=k+1;
 					}
