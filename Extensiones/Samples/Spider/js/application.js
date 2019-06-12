@@ -119,7 +119,7 @@
 		}
 
 		//Definir los valores para cada serie
-		var dataserie = array(label.length);
+		var dataserie = Array(label.length);
 				
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
