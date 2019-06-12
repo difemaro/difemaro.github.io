@@ -124,7 +124,7 @@
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
 			for (var j=0; j<worksheetData.length; i++){
-				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i])){
+				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i]){
 					dataserie[labels.indexof(worksheetData[j][categoryColumnNumberTo-1].formattedValue)] += worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
