@@ -136,6 +136,10 @@
 					 datasets: dataset
 					};
 		
+		
+		console.log(dataset);
+		console.log(marksData);
+		
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
 		data: marksData
