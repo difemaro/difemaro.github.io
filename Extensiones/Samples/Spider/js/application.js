@@ -152,7 +152,7 @@
 			console.log("Dataserie");
 			console.log(dataserie);
 			datasetrow = {label: label[i],
-						  data: dataserie};
+						  data: dataserie.values};
 			console.log("Dataserow");
 			console.log(datasetrow);
 			dataset.push(datasetrow);
