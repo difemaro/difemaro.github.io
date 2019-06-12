@@ -141,11 +141,14 @@
 					while (worksheetData[j][categoryColumnNumberTo-1].formattedValue != labels[k]){
 						k=k+1;
 					}
-					dataserie[k] += worksheetData[j][valueColumnNumber-1].value;
+					dataserie[k] = dataserie[k] + worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
+			console.log("Dataserie");
+			console.log(dataserie);
 			datasetrow = {label: label[i],
 						  data: dataserie};
+			console.log("Dataserow");
 			console.log(datasetrow);
 			dataset.push(datasetrow);
 		}
