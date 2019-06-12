@@ -105,7 +105,7 @@
 		
 		//Definir las series del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
-			if (label.includes(worksheetData[i][categoryColumnNumber-1].formattedValue){
+			if (label.includes(worksheetData[i][categoryColumnNumber-1].formattedValue)){
 				label.push(worksheetData[i][categoryColumnNumber-1].formattedValue);
 			}
 		}
