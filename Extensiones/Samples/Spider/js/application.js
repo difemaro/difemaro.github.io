@@ -101,6 +101,8 @@
 		var datasetrow = {};
 		var dataset = [];
 		var marksData = {};
+		var colors = ["rgba(200,0,0,0.2)", '#b2df8a', '#fb9a99', '#fdbf6f',
+					  '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];	
 
 		
 		
@@ -124,10 +126,10 @@
 			}
 		}
 
-		console.log("Label");
-		console.log(label);
-		console.log("Labels");
-		console.log(labels);
+		//console.log("Label");
+		//console.log(label);
+		//console.log("Labels");
+		//console.log(labels);
 
 		//Definir los valores para cada serie
 		var dataserie = Array(labels.length);
@@ -136,26 +138,21 @@
 				
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
+			console.log(label[i]);
 			console.log(dataserie);
 			for (var j=0; j<worksheetData.length; j++){
-				console.log("j:" + j);
 				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i]){
 					k=0;
-					console.log(worksheetData[j][categoryColumnNumberTo-1].formattedValue);
 					while (worksheetData[j][categoryColumnNumberTo-1].formattedValue != labels[k]){
 						k=k+1;
 					}
-					console.log("k:" + k);
-					console.log(labels[k]);
-					console.log(worksheetData[j][valueColumnNumber-1].value);
-					dataserie[k] = dataserie[k] + worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
 			console.log("Dataserie");
 			console.log(dataserie);
 			datasetrow = {label: label[i],
 						  data: dataserie};
-			console.log("Dataserow");
+			console.log("Datasetrow");
 			console.log(datasetrow);
 			dataset.push(datasetrow);
 		}
