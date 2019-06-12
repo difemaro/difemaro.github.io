@@ -141,6 +141,7 @@
 			for (var m=0;m<dataserie.length;m++){
 				dataserie[m]=0;
 			}
+			console.log(dataserie);
 			for (var j=0; j<worksheetData.length; j++){
 				console.log("j:" + j);
 				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i]){
