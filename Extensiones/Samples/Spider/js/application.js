@@ -170,7 +170,8 @@
 						  backgroundColor: colors[i],
 						  data: Object.values(dataserie),
 						  fill: FillChart,
-						  borderColor:colors[i]};
+						  borderColor:colors[i],
+						  borderWidth:1};
 			console.log("Dataserow");
 			console.log(datasetrow);
 			dataset.push(datasetrow);
