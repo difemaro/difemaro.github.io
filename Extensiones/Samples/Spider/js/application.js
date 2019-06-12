@@ -124,10 +124,10 @@
 			}
 		}
 
-		//console.log("Label");
-		//console.log(label);
-		//console.log("Labels");
-		//console.log(labels);
+		console.log("Label");
+		console.log(label);
+		console.log("Labels");
+		console.log(labels);
 
 		//Definir los valores para cada serie
 		var dataserie = Array(label.length);
