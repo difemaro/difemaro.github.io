@@ -99,8 +99,8 @@
 		var labels = [];
 		var label = [];
 		var datasetrow = {};
-		var dataset[];
-		var marksData{};
+		var dataset = [];
+		var marksData = {};
 		
 		
 		//Definir las series del Radial Chart
