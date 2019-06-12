@@ -118,8 +118,7 @@
 		}
 
 		//Definir los valores para cada serie
-		new dataserie(label.length);
-		dataserie.fill(0);
+		dataserie(label.length).fill(0);
 
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
