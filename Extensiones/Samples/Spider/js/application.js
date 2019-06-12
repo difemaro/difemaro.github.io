@@ -9,6 +9,7 @@
   let categoryColumnNumber = null;
   let categoryColumnNumberTo = null;
   let valueColumnNumber = null;
+  let FilledBackground = null;
 
   $(document).ready(function () {
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
@@ -33,6 +34,8 @@
     categoryColumnNumber = tableau.extensions.settings.get("categoryColumnNumber");
 	categoryColumnNumberTo = tableau.extensions.settings.get("categoryColumnNumberTo");
     valueColumnNumber = tableau.extensions.settings.get("valueColumnNumber");
+	FilledBackground = tableau.extensions.settings.get("filled");
+	
 	console.log("getSettings");
 	
     // If settings are changed we will unregister and re register the listener.
@@ -89,6 +92,7 @@
     categoryColumnNumber = tableau.extensions.settings.get("categoryColumnNumber");
 	categoryColumnNumberTo = tableau.extensions.settings.get("categoryColumnNumberTo");
     valueColumnNumber = tableau.extensions.settings.get("valueColumnNumber");
+	FilledBackground = tableau.extensions.settings.get("filled");
 	
 	worksheet=tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) {
       return sheet.name===worksheetName;
@@ -101,8 +105,16 @@
 		var datasetrow = {};
 		var dataset = [];
 		var marksData = {};
-		var colors = ["rgba(166,206,227,0.2)", "rgba(178,223,138,0.2)", "rgba(251,154,153,0.2)", "rgba(253,191,111,0.2)",
-					  "rgba(202,178,214,0.2)", "rgba(255,255,153,0.2)", "rgba(31,120,180,0.2)", "rgba(51,160,44,0.2)"];	
+		
+		if (FilledBackground="Yes"){
+			var colors = ["rgba(166,206,227,0.2)", "rgba(178,223,138,0.2)", "rgba(251,154,153,0.2)", "rgba(253,191,111,0.2)",
+						  "rgba(202,178,214,0.2)", "rgba(255,255,153,0.2)", "rgba(31,120,180,0.2)", "rgba(51,160,44,0.2)"];	
+			var FillChart = true;
+		}else{
+			var colors = ["rgba(166,206,227,1)", "rgba(178,223,138,1)", "rgba(251,154,153,1)", "rgba(253,191,111,1)",
+						  "rgba(202,178,214,1)", "rgba(255,255,153,1)", "rgba(31,120,180,0.2)", "rgba(51,160,44,1)"];
+			var FillChart = false;
+		}
 					  
 		//Definir las series del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
@@ -151,7 +163,8 @@
 			console.log(dataserie);
 			datasetrow = {label: label[i],
 						  backgroundColor: colors[i],
-						  data: Object.values(dataserie)};
+						  data: Object.values(dataserie),
+						  fill: FillChart};
 			console.log("Dataserow");
 			console.log(datasetrow);
 			dataset.push(datasetrow);
