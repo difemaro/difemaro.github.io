@@ -106,7 +106,7 @@
 		var dataset = [];
 		var marksData = {};
 			
-		if (FilledBackground="Yes"){
+		if (FilledBackground == "Yes"){
 			var colors = ["rgba(166,206,227,0.2)", "rgba(178,223,138,0.2)", "rgba(251,154,153,0.2)", "rgba(253,191,111,0.2)",
 						  "rgba(202,178,214,0.2)", "rgba(255,255,153,0.2)", "rgba(31,120,180,0.2)", "rgba(51,160,44,0.2)"];	
 			var FillChart = true;
