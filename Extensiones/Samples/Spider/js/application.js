@@ -150,11 +150,13 @@
 		var dataserie = Array(labels.length);
 				
 		var k=0;
-				
+
+		console.log(worksheetData);		
+		
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
-			console.log(label[i]);
-			console.log(dataserie);
+			//console.log(label[i]);
+			//console.log(dataserie);
 			for (var j=0; j<worksheetData.length; j++){
 				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i]){
 					k=0;
