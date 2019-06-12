@@ -136,7 +136,7 @@
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
 			for (var j=0; j<worksheetData.length; j++){
-				console.log(j);
+				console.log("j:" + j);
 				if (worksheetData[j][categoryColumnNumber-1].formattedValue == label[i]){
 					k=0;
 					console.log(worksheetData[j][categoryColumnNumberTo-1].formattedValue);
@@ -144,6 +144,7 @@
 						console.log(labels[k]);
 						k=k+1;
 					}
+					console.log("k:" + k);
 					dataserie[k] = dataserie[k] + worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
