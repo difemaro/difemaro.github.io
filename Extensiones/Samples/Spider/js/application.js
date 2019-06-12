@@ -101,7 +101,7 @@
 		var datasetrow = {};
 		var dataset = [];
 		var marksData = {};
-		var dataserie = [];
+
 		
 		
 		//Definir las series del Radial Chart
@@ -119,8 +119,8 @@
 		}
 
 		//Definir los valores para cada serie
-		dataserie(label.length).fill(0);
-
+		var dataserie = array(label.length);
+				
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
 			for (var j=0; j<worksheetData.length; i++){
