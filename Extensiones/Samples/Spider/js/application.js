@@ -198,8 +198,8 @@
 		var options = {responsive: true,
 					   maintainAspectRatio: false};
 		
-		var width = 0.9*($("#myBody").parentnode.parentnode.width();
-		var heigth = 0.9*($("#myBody").parentnode.parentnode.height();
+		var width = 0.9*($("#myBody").parentnode.parentnode.width());
+		var heigth = 0.9*($("#myBody").parentnode.parentnode.height());
 		
 		//var heigth = 0.9*($("#myBody").parent()).parent.height();
 		
