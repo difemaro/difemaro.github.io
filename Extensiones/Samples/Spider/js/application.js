@@ -105,7 +105,7 @@
 		var dataset = [];
 		var marksData = {};
 		
-		console.log($("#myDiv").parent().width(););
+		console.log($("#myDiv").parent().width());
 		
 		if (FilledBackground == 1){
 			var colors = ["rgba(166,206,227," + Opacity + ")", "rgba(178,223,138," + Opacity + ")", "rgba(251,154,153," + Opacity + ")", "rgba(253,191,111," + Opacity + ")",
