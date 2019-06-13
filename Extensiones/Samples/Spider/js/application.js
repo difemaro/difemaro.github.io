@@ -107,8 +107,6 @@
 		var dataset = [];
 		var marksData = {};
 		
-		console.log(minwh);
-		
 		if (FilledBackground == 1){
 			var colors = ["rgba(166,206,227," + Opacity + ")", "rgba(178,223,138," + Opacity + ")", "rgba(251,154,153," + Opacity + ")", "rgba(253,191,111," + Opacity + ")",
 						  "rgba(202,178,214," + Opacity + ")", "rgba(255,255,153," + Opacity + ")", "rgba(31,120,180,"  + Opacity + ")", "rgba(51,160,44,"   + Opacity + ")"];	
@@ -151,7 +149,7 @@
 				
 		var k=0;
 
-		console.log(worksheetData);		
+		//console.log(worksheetData);		
 		
 		for (var i=0; i<label.length; i++) {
 			dataserie.fill(0);
@@ -202,6 +200,8 @@
 		}else{
 			minwh=heigth;
 		}
+		
+		console.log(minwh);
 		
 		var el = document.getElementById("myDiv");
 		el.style.height = minwh + "px";
