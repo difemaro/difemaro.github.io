@@ -198,6 +198,8 @@
 		var options = {responsive: true,
 					   maintainAspectRatio: false};
 		
+		setTimeout(prueba, 3000);
+		
 		var width = 0.9*$("#myBody").parent().width();
 		var heigth = 0.9*$("#myBody").parent().height();
 		
@@ -229,6 +231,10 @@
 	})
   }
 
+  function prueba(){
+  var a=3;
+  }
+  
   function configure() {
     const popupUrl=`${window.location.origin}/Extensiones/Samples/Spider/dialog.html`;
     let defaultPayload="";
