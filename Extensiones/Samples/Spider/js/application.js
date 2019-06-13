@@ -196,18 +196,12 @@
 
 		console.log("MarksData");
 		console.log(marksData);
-		
-		var options = {responsive: true, // Instruct chart js to respond nicely.
-					   maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
-					   };
-
-		
+			
 		resize();
 		
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
-		data: marksData,
-		options: options
+		data: marksData
 		});
 		
 	})
