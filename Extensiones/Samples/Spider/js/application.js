@@ -110,7 +110,7 @@
 		
 		var minwh;
 		
-		If (width<heigth){
+		if (width<heigth){
 			minwh=width;
 		}else{
 			minwh=heigth;
