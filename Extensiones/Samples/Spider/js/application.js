@@ -17,10 +17,6 @@
   }
   
   $(document).ready(function () {
-	resize();
-    $(window).on("resize", function(){                      
-        resize();
-    });
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
       // Draw the chart when initialising the dashboard.
 		  getSettings();
