@@ -198,7 +198,7 @@
 		console.log("MarksData");
 		console.log(marksData);
 		
-		var options = {responsive: false};
+		var options = {responsive: true};
 		
 		resize();
 		
