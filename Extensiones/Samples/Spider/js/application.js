@@ -105,8 +105,8 @@
 		var dataset = [];
 		var marksData = {};
 		
-		var width = $("#myDiv").parent().width();
-		var heigth = $("#myDiv").parent().height();
+		var width = $("#myBody").parent().width();
+		var heigth = $("myBody").parent().height();
 		
 		var minwh;
 		
