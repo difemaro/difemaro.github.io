@@ -105,8 +105,7 @@
 		var dataset = [];
 		var marksData = {};
 		
-		console.log("Setting" + tableau.extensions.settings.get("filled"));
-		console.log("Variable" + FilledBackground);
+		console.log($(window).height()-$("#canvas").offset().top- Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight()));
 		
 		if (FilledBackground == 1){
 			var colors = ["rgba(166,206,227," + Opacity + ")", "rgba(178,223,138," + Opacity + ")", "rgba(251,154,153," + Opacity + ")", "rgba(253,191,111," + Opacity + ")",
@@ -117,9 +116,7 @@
 						  "rgba(202,178,214,1)", "rgba(255,255,153,1)", "rgba(31,120,180,1)", "rgba(51,160,44,1)"];
 			var FillChart = false;
 		}
-		
-		console.log("Filled " + FilledBackground + FillChart);
-					  
+						  
 		//Definir las series del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
 			if (label.length == 0){
