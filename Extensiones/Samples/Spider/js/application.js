@@ -20,8 +20,8 @@
 		  getSettings();
 		  drawChartJS();
 		  if (worksheetName != null){
-			  getSettings();
 			  console.log("initialize2");
+			  getSettings();
 			  drawChartJS();
 		  }
       // Set up the Settings Event Listener.
@@ -233,8 +233,9 @@
     const popupUrl=`${window.location.origin}/Extensiones/Samples/Spider/dialog.html`;
     let defaultPayload="";
     tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:600, width:500 }).then((closePayload) => {
-      drawChartJS();
-	  console.log("Exito");
+		console.log("Exito");
+		drawChartJS();
+
     }).catch((error) => {
       switch (error.errorCode) {
         case tableau.ErrorCodes.DialogClosedByUser:
