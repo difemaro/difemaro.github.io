@@ -198,10 +198,8 @@
 		var options = {responsive: true,
 					   maintainAspectRatio: false};
 		
-		setTimeout(prueba, 3000);
-		
-		var width = 0.9*$("#myBody").parent().width();
-		var heigth = 0.9*$("#myBody").parent().height();
+		var width = 0.9*($("#myBody").parent()).parent.width();
+		var heigth = 0.9*($("#myBody").parent()).parent.height();
 		
 		var minwh;
 		
@@ -229,10 +227,6 @@
 		});
 		
 	})
-  }
-
-  function prueba(){
-  var a=3;
   }
   
   function configure() {
