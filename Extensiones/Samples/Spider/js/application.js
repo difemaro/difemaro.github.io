@@ -17,9 +17,9 @@
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
       // Draw the chart when initialising the dashboard.
 		  console.log("initialize");
-		  getSettings();
-		  drawChartJS();
-		  if (worksheetName != null){
+		  //getSettings();
+		  //drawChartJS();
+		  if (tableau.extensions.settings.get("worksheet") != null){
 			  console.log("initialize2");
 			  getSettings();
 			  drawChartJS();
