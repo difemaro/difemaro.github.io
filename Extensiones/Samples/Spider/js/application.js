@@ -4,6 +4,7 @@
   //let unregisterSettingsEventListener = null;	
   let unregisterFilterEventListener = null;
   let unregisterMarkSelectionEventListener = null;
+  let unregisterSettingsEventListener = null;
   let worksheet = null;
   let worksheetName = null;
   let categoryColumnNumber = null;
