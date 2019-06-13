@@ -13,6 +13,19 @@
   let Opacity = null;
 
   $(document).ready(function () {
+	  
+	document.addEventListener("fullscreenchange", function() {
+		drawChartJS();
+	});
+	document.addEventListener("mozfullscreenchange", function() {
+		drawChartJS();
+	});
+	document.addEventListener("webkitfullscreenchange", function() {
+		drawChartJS();
+	});
+	document.addEventListener("msfullscreenchange", function() {
+		drawChartJS();
+	});
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
       // Draw the chart when initialising the dashboard.
 		  getSettings();
@@ -70,6 +83,10 @@
 		});
 	}
 
+	//Full screen listener
+	
+	
+	
 	
 	// Redraw Listener
 	if (document.addEventListener) {
