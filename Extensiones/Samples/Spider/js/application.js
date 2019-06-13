@@ -16,8 +16,8 @@
   $(document).ready(function () { 
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
       // Draw the chart when initialising the dashboard.
-		  getSettings();
 		  console.log("initialize");
+		  getSettings();
 		  drawChartJS();
 		  if (worksheetName != null){
 			  getSettings();
@@ -27,8 +27,8 @@
       // Set up the Settings Event Listener.
       unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
         // On settings change.
-        getSettings();
-		console.log("SettingsChanged");
+        console.log("SettingsChanged");
+		getSettings();
         drawChartJS();
       });
     }, function () { console.log('Error while Initializing: ' + err.toString()); });
