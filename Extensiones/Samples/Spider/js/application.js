@@ -17,12 +17,12 @@
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
       // Draw the chart when initialising the dashboard.
 		  getSettings();
-		  drawChartJS();
 		  console.log("initialize");
+		  drawChartJS();
 		  if (worksheetName != null){
 			  getSettings();
-			  drawChartJS();
 			  console.log("initialize2");
+			  drawChartJS();
 		  }
       // Set up the Settings Event Listener.
       unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
