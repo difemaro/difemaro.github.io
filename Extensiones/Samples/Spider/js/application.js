@@ -198,16 +198,13 @@
 		console.log("MarksData");
 		console.log(marksData);
 		
-		var options = {responsive: true};
-		
 		var el = document.getElementById("myDiv");
 		el.style.height = minwh + "px";
 		el.style.width = minwh + "px";
 		
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
-		data: marksData,
-		options: options
+		data: marksData
 		});
 		
 	})
