@@ -12,14 +12,12 @@
   let FilledBackground = null;
   let Opacity = null;
 
-  function resize(){    
-    $("#myChart").outerHeight($(window).height()-$("#myChart").offset().top- Math.abs($("#myChart").outerHeight(true) - $("#myChart").outerHeight()));
-  }
   
   $(document).ready(function () {
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
       // Draw the chart when initialising the dashboard.
 		  getSettings();
+		  drawChartJS();
 		  if (worksheetName != null){
 			  getSettings();
 			  drawChartJS();
@@ -192,9 +190,7 @@
 
 		console.log("MarksData");
 		console.log(marksData);
-			
-		resize();
-		
+				
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
 		data: marksData
