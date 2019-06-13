@@ -106,7 +106,7 @@
 		var marksData = {};
 		
 		var width = $("#myDiv").parent().width();
-		var heigth = $("#myDiv").parent().heigh();
+		var heigth = $("#myDiv").parent().height();
 		
 		var minwh;
 		
