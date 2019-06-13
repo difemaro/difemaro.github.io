@@ -198,7 +198,7 @@
 		console.log("MarksData");
 		console.log(marksData);
 		
-		options = {responsive: false};
+		var options = {responsive: false};
 				
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
