@@ -199,7 +199,9 @@
 		console.log(marksData);
 		
 		var options = {responsive: false};
-				
+		
+		resize();
+		
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
 		data: marksData,
