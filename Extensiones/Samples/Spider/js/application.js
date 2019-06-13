@@ -105,7 +105,18 @@
 		var dataset = [];
 		var marksData = {};
 		
-		console.log($("#myDiv").parent().width());
+		var width = $("#myDiv").parent().width();
+		var heigth = $("#myDiv").parent().heigh();
+		
+		var minwh;
+		
+		If (width<heigth){
+			minwh=width;
+		}else{
+			minwh=heigth;
+		}
+		
+		console.log(minwh);
 		
 		if (FilledBackground == 1){
 			var colors = ["rgba(166,206,227," + Opacity + ")", "rgba(178,223,138," + Opacity + ")", "rgba(251,154,153," + Opacity + ")", "rgba(253,191,111," + Opacity + ")",
