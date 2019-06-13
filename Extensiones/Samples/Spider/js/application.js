@@ -122,17 +122,6 @@
 		var dataset = [];
 		var marksData = {};
 		
-		var width = 0.9*$("#myBody").parent().width();
-		var heigth = 0.9*$("#myBody").parent().height();
-		
-		var minwh;
-		
-		if (width<heigth){
-			minwh=width;
-		}else{
-			minwh=heigth;
-		}
-		
 		console.log(minwh);
 		
 		if (FilledBackground == 1){
@@ -217,6 +206,17 @@
 		
 		var options = {responsive: true,
 					   maintainAspectRatio: false};
+		
+		var width = 0.9*$("#myBody").parent().width();
+		var heigth = 0.9*$("#myBody").parent().height();
+		
+		var minwh;
+		
+		if (width<heigth){
+			minwh=width;
+		}else{
+			minwh=heigth;
+		}
 		
 		var el = document.getElementById("myDiv");
 		el.style.height = minwh + "px";
