@@ -72,15 +72,12 @@
 	
 	// Redraw Listener
 	if (document.addEventListener) {
-		console.log("iniciar");
 		window.addEventListener('resize', drawChartJS);
 	}
 	else if (document.attachEvent) {
-		console.log("iniciar");
 		window.attachEvent('onresize', drawChartJS);
 	}
 	else {
-		console.log("iniciar");
 		window.resize = drawChartJS;
 	}
   }
@@ -194,7 +191,8 @@
 		
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
-		data: marksData
+		data: marksData,
+		{responsive: true}
 		});
 	})
   }
