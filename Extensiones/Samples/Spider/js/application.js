@@ -106,7 +106,7 @@
 		var marksData = {};
 		
 		var width = $("#myBody").parent().width();
-		var heigth = $("myBody").parent().height();
+		var heigth = $("#myBody").parent().height();
 		
 		var minwh;
 		
