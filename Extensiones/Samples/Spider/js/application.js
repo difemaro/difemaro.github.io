@@ -28,8 +28,8 @@
       unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
         // On settings change.
         getSettings();
-        drawChartJS();
 		console.log("SettingsChanged");
+        drawChartJS();
       });
     }, function () { console.log('Error while Initializing: ' + err.toString()); });
   });
@@ -76,16 +76,16 @@
 
 	// Redraw Listener
 	if (document.addEventListener) {
-		window.addEventListener('resize', drawChartJS);
 		console.log("Resize");
+		window.addEventListener('resize', drawChartJS);
 	}
 	else if (document.attachEvent) {
-		window.attachEvent('onresize', drawChartJS);
 		console.log("Onresize");
+		window.attachEvent('onresize', drawChartJS);
 	}
 	else {
-		window.resize = drawChartJS;
 		console.log("Elseresize");
+		drawChartJS();
 	}
   }
 
