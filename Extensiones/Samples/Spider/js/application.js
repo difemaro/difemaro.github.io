@@ -17,15 +17,18 @@
       // Draw the chart when initialising the dashboard.
 		  getSettings();
 		  drawChartJS();
+		  console.log("initialize");
 		  if (worksheetName != null){
 			  getSettings();
 			  drawChartJS();
+			  console.log("initialize2");
 		  }
       // Set up the Settings Event Listener.
       unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
         // On settings change.
         getSettings();
         drawChartJS();
+		console.log("SettingsChanged");
       });
     }, function () { console.log('Error while Initializing: ' + err.toString()); });
   });
