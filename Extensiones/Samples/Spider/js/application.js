@@ -12,20 +12,7 @@
   let FilledBackground = null;
   let Opacity = null;
 
-  $(document).ready(function () {
-	  
-	document.addEventListener("fullscreenchange", function() {
-		drawChartJS();
-	});
-	document.addEventListener("mozfullscreenchange", function() {
-		drawChartJS();
-	});
-	document.addEventListener("webkitfullscreenchange", function() {
-		drawChartJS();
-	});
-	document.addEventListener("msfullscreenchange", function() {
-		drawChartJS();
-	});
+  $(document).ready(function () { 
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
       // Draw the chart when initialising the dashboard.
 		  getSettings();
@@ -83,20 +70,18 @@
 		});
 	}
 
-	//Full screen listener
-	
-	
-	
-	
 	// Redraw Listener
 	if (document.addEventListener) {
 		window.addEventListener('resize', drawChartJS);
+		console.log("Resize");
 	}
 	else if (document.attachEvent) {
 		window.attachEvent('onresize', drawChartJS);
+		console.log("Onresize");
 	}
 	else {
 		window.resize = drawChartJS;
+		console.log("Elseresize");
 	}
   }
 
@@ -181,28 +166,28 @@
 					dataserie[k] = dataserie[k] + worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
-			console.log("Dataserie");
-			console.log(dataserie);
+			//console.log("Dataserie");
+			//console.log(dataserie);
 			datasetrow = {label: label[i],
 						  backgroundColor: colors[i],
 						  data: Object.values(dataserie),
 						  fill: FillChart,
 						  borderColor:colors[i],
 						  borderWidth:1};
-			console.log("Dataserow");
-			console.log(datasetrow);
+			//console.log("Dataserow");
+			//console.log(datasetrow);
 			dataset.push(datasetrow);
 		}
 
-		console.log("dataset");
-		console.log(dataset);
+		//console.log("dataset");
+		//console.log(dataset);
 
 		marksData = {labels: labels,
 					 datasets: dataset
 					};
 
-		console.log("MarksData");
-		console.log(marksData);
+		//console.log("MarksData");
+		//console.log(marksData);
 		
 		var options = {responsive: true,
 					   maintainAspectRatio: false};
