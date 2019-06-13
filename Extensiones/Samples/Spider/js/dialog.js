@@ -44,6 +44,8 @@
             $("#selectCategoryTo").text("");			
             $("#selectValue").text("");
 			$("#selectFill").text("");
+			$("#selectOpacity").text("");
+			
             var counter = 1;
             worksheetColumns.forEach(function (current_value) {
                 $("#selectCategoryFrom").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
@@ -52,13 +54,28 @@
                 counter++;
             });
 			
+			//Llenar el box de rellenar o no			
 			$("#selectFill").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
 			$("#selectFill").append("<option value='" + 2 + "'>"+"No"+"</option>");
 			
+			//Llenar el box de opacidad
+			$("#selectOpacity").append("<option value='" + 0.1 + "'>"+"10"+"</option>");
+			$("#selectOpacity").append("<option value='" + 0.2 + "'>"+"20"+"</option>");
+			$("#selectOpacity").append("<option value='" + 0.3 + "'>"+"30"+"</option>");
+			$("#selectOpacity").append("<option value='" + 0.4 + "'>"+"40"+"</option>");
+			$("#selectOpacity").append("<option value='" + 0.5 + "'>"+"50"+"</option>");
+			$("#selectOpacity").append("<option value='" + 0.6 + "'>"+"60"+"</option>");
+			$("#selectOpacity").append("<option value='" + 0.7 + "'>"+"70"+"</option>");
+			$("#selectOpacity").append("<option value='" + 0.8 + "'>"+"80"+"</option>");
+			$("#selectOpacity").append("<option value='" + 0.9 + "'>"+"90"+"</option>");
+			$("#selectOpacity").append("<option value='" + 1 + "'>"+"100"+"</option>");
+			
+			//Llenar las casillas si hay una configuración cargada
             $("#selectCategory").val(tableau.extensions.settings.get("categoryColumnNumber"));
 			$("#selectCategoryTo").val(tableau.extensions.settings.get("categoryColumnNumberTo"));
             $("#selectValue").val(tableau.extensions.settings.get("valueColumnNumber"));
 			$("#selectFill").val(tableau.extensions.settings.get("filled"));
+			$("#selectOpacity").val(tableau.extensions.settings.get("opacity"));
         });
     }
 
@@ -77,6 +94,7 @@
 		tableau.extensions.settings.set("categoryColumnNumberTo", $("#selectCategoryTo").val());
         tableau.extensions.settings.set("valueColumnNumber", $("#selectValue").val());
 		tableau.extensions.settings.set("filled", $("#selectFill").val());
+		tableau.extensions.settings.set("opacity", $("#selectOpacity").val());
 		tableau.extensions.settings.saveAsync().then((currentSettings) => {
 			tableau.extensions.ui.closeDialog("10");
         });
