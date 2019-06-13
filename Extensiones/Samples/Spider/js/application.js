@@ -73,6 +73,10 @@
 			drawChartJS();
 		});
 	}
+	
+	var body = document.getElementById("myBody");
+	body.addEventListener("resize", drawChartJS);
+
 
 	// Redraw Listener
 	if (document.addEventListener) {
