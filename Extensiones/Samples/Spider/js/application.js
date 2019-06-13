@@ -191,8 +191,7 @@
 		
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
-		data: marksData,
-		{responsive: true}
+		data: marksData
 		});
 	})
   }
