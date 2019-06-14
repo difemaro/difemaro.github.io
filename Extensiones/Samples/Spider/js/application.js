@@ -21,7 +21,7 @@
 		  //drawChartJS();
 		  if (tableau.extensions.settings.get("worksheet") != null){
 			  console.log("initialize2");
-			  if (!tableau.extensions.settings.get("configured") {
+			  if (!tableau.extensions.settings.get("configured")) {
 				configure();
 		      }
 			  getSettings();
