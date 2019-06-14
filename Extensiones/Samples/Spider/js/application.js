@@ -21,12 +21,13 @@
 		  //drawChartJS();
 		  if (tableau.extensions.settings.get("worksheet") != null){
 			  console.log("initialize2");
-			  if (!tableau.extensions.settings.get("configured")) {
-				configure();
-		      }
 			  getSettings();
 			  drawChartJS();
 		  }
+		  if (!tableau.extensions.settings.get("configured")) {
+				configure();
+	      }
+
       // Set up the Settings Event Listener.
       unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
         // On settings change.
