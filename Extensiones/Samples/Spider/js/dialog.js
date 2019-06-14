@@ -48,11 +48,29 @@
 			
             var counter = 1;
             worksheetColumns.forEach(function (current_value) {
-                $("#selectCategoryFrom").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
-                $("#selectCategoryTo").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");				
-                $("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
+				if (counter == 1){
+					$("#selectCategoryFrom").append("<option selected='selected' value='" + counter + "'>" + current_value.fieldName + "</option>");
+					$("#selectCategoryTo").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");				
+					$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
+				}else if ((counter == 2){
+					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
+					$("#selectCategoryTo").append("<option selected='selected' value='" + counter + "'>" + current_value.fieldName + "</option>");				
+					$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
+				}else if ((counter == 3){
+					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
+					$("#selectCategoryTo").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");				
+					$("#selectValue").append("<option selected='selected' value='" + counter + "'>"+current_value.fieldName+"</option>");			
+				}else{
+					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
+					$("#selectCategoryTo").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");				
+					$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");			
+				}
                 counter++;
             });
+			
+			
+			
+			
 			
 			//Llenar el box de rellenar o no			
 			$("#selectFill").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
