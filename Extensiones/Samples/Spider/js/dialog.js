@@ -95,6 +95,7 @@
         tableau.extensions.settings.set("valueColumnNumber", $("#selectValue").val());
 		tableau.extensions.settings.set("filled", $("#selectFill").val());
 		tableau.extensions.settings.set("opacity", $("#selectOpacity").val());
+		tableau.extensions.settings.set("configured", 1);
 		tableau.extensions.settings.saveAsync().then((currentSettings) => {
 			tableau.extensions.ui.closeDialog("10");
         });
