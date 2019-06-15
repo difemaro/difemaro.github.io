@@ -25,7 +25,7 @@
 			  drawChartJS();
 		  }
 		  console.log(tableau.extensions.settings.get("configured"));
-		  if (tableau.extensions.settings.get("configured") != "yes") {
+		  if (tableau.extensions.settings.get("configured") != 1) {
 				configure();
 	      }
 
@@ -242,7 +242,7 @@
     tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:600, width:500 }).then((closePayload) => {
 		console.log("Exito");
 		drawChartJS();
-		tableau.extensions.settings.set("configured", "yes");
+		tableau.extensions.settings.set("configured", 1);
     }).catch((error) => {
       switch (error.errorCode) {
         case tableau.ErrorCodes.DialogClosedByUser:
