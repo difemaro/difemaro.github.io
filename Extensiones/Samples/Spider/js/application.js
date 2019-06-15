@@ -24,6 +24,7 @@
 			  getSettings();
 			  drawChartJS();
 		  }
+		  console.log(tableau.extensions.settings.get("configured"));
 		  if (tableau.extensions.settings.get("configured") != "yes") {
 				configure();
 	      }
@@ -118,14 +119,12 @@
 		var datasetrow = {};
 		var dataset = [];
 		var marksData = {};
+		var colors = ["rgba(166,206,227," + Opacity + ")", "rgba(178,223,138," + Opacity + ")", "rgba(251,154,153," + Opacity + ")", "rgba(253,191,111," + Opacity + ")",
+					  "rgba(202,178,214," + Opacity + ")", "rgba(255,255,153," + Opacity + ")", "rgba(31,120,180,"  + Opacity + ")", "rgba(51,160,44,"   + Opacity + ")"];	
 		
 		if (FilledBackground == 1){
-			var colors = ["rgba(166,206,227," + Opacity + ")", "rgba(178,223,138," + Opacity + ")", "rgba(251,154,153," + Opacity + ")", "rgba(253,191,111," + Opacity + ")",
-						  "rgba(202,178,214," + Opacity + ")", "rgba(255,255,153," + Opacity + ")", "rgba(31,120,180,"  + Opacity + ")", "rgba(51,160,44,"   + Opacity + ")"];	
 			var FillChart = true;
 		}else{
-			var colors = ["rgba(166,206,227,1)", "rgba(178,223,138,1)", "rgba(251,154,153,1)", "rgba(253,191,111,1)",
-						  "rgba(202,178,214,1)", "rgba(255,255,153,1)", "rgba(31,120,180,1)", "rgba(51,160,44,1)"];
 			var FillChart = false;
 		}
 						  

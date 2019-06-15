@@ -53,10 +53,7 @@
 				$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");			
                 counter++;
             });
-			
-			$("#selectCategoryFrom").selectedIndex = 0;
-			$("#selectCategoryTo").selectedIndex = 1;
-			
+					
 			//Llenar el box de rellenar o no			
 			$("#selectFill").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
 			$("#selectFill").append("<option value='" + 2 + "'>"+"No"+"</option>");
