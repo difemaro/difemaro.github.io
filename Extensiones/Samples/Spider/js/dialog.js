@@ -52,11 +52,12 @@
 					$("#selectCategoryFrom").append("<option selected='selected' value='" + counter + "'>" + current_value.fieldName + "</option>");
 					$("#selectCategoryTo").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");				
 					$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
-				}else if ((counter == 2){
+				}else if (counter == 2){
+					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
 					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
 					$("#selectCategoryTo").append("<option selected='selected' value='" + counter + "'>" + current_value.fieldName + "</option>");				
 					$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
-				}else if ((counter == 3){
+				}else if (counter == 3){
 					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
 					$("#selectCategoryTo").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");				
 					$("#selectValue").append("<option selected='selected' value='" + counter + "'>"+current_value.fieldName+"</option>");			
