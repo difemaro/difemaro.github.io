@@ -48,30 +48,14 @@
 			
             var counter = 1;
             worksheetColumns.forEach(function (current_value) {
-				if (counter == 1){
-					$("#selectCategoryFrom").append("<option selected='selected' value='" + counter + "'>" + current_value.fieldName + "</option>");
-					$("#selectCategoryTo").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");				
-					$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
-				}else if (counter == 2){
-					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
-					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
-					$("#selectCategoryTo").append("<option selected='selected' value='" + counter + "'>" + current_value.fieldName + "</option>");				
-					$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
-				}else if (counter == 3){
-					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
-					$("#selectCategoryTo").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");				
-					$("#selectValue").append("<option selected='selected' value='" + counter + "'>"+current_value.fieldName+"</option>");			
-				}else{
-					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
-					$("#selectCategoryTo").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");				
-					$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");			
-				}
+				$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
+				$("#selectCategoryTo").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");				
+				$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");			
                 counter++;
             });
 			
-			
-			
-			
+			$("#selectCategoryFrom").selectedIndex = 0;
+			$("#selectCategoryTo").selectedIndex = 1;
 			
 			//Llenar el box de rellenar o no			
 			$("#selectFill").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
