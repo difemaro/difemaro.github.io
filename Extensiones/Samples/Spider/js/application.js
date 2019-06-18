@@ -198,7 +198,7 @@
 		//console.log(marksData);
 		
 		var options = {responsive: true,
-					   //maintainAspectRatio: false,
+					   maintainAspectRatio: false,
 					   scale: {
 						   ticks: {
 							   min:0
@@ -212,8 +212,6 @@
 		var heigth = 0.9*$("#myBody").parent().height();
 		
 		console.log($("#myBody").parent());
-		
-		//var heigth = 0.9*($("#myBody").parent()).parent.height();
 		
 		var minwh;
 		
