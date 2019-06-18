@@ -204,7 +204,8 @@
 							   min:0
 						   }
 					   },
-					   showTooltips: true
+					   showTooltips: true,
+					   multiTooltipTemplate: "<%= value %>"
 					   };
 		
 		var width = 0.9*$("#myBody").parent().width();
