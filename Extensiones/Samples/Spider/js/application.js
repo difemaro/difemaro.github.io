@@ -198,7 +198,7 @@
 		//console.log(marksData);
 		
 		var options = {responsive: true,
-					   maintainAspectRatio: false,
+					   //maintainAspectRatio: false,
 					   scale: {
 						   ticks: {
 							   min:0
