@@ -73,6 +73,7 @@
         tableau.extensions.settings.set("categoryColumnNumber", $("#selectCategoryFrom").val());
 		tableau.extensions.settings.set("categoryColumnNumberTo", $("#selectCategoryTo").val());
         tableau.extensions.settings.set("valueColumnNumber", $("#selectValue").val());
+		tableau.extensions.settings.set("configured", 1);
 		console.log("Exito2");
         tableau.extensions.settings.saveAsync().then((currentSettings) => {
             console.log("Exito3");

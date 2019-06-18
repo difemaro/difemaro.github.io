@@ -24,7 +24,6 @@
 			  getSettings();
 			  drawChartJS();
 		  }
-		  console.log(tableau.extensions.settings.get("configured"));
 		  if (tableau.extensions.settings.get("configured") != 1) {
 				configure();
 	      }

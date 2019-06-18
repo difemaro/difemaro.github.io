@@ -13,11 +13,16 @@
   $(document).ready(function () {
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
       // Draw the chart when initialising the dashboard.
-		  getSettings();
-		  if (worksheetName != null){
+		  if (tableau.extensions.settings.get("worksheet") != null){
+			  console.log("initialize2");
+			  getSettings();
 			  google.charts.setOnLoadCallback(drawChartJS);
 			  drawChartJS();
 		  }
+		  if (tableau.extensions.settings.get("configured") != 1) {
+				configure();
+	      }
+
       // Set up the Settings Event Listener.
       unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
         // On settings change.
