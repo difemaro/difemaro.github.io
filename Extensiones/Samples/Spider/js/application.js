@@ -203,7 +203,8 @@
 						   ticks: {
 							   min:0
 						   }
-					   }
+					   },
+					   showTooltips: true
 					   };
 		
 		var width = 0.9*$("#myBody").parent().width();
