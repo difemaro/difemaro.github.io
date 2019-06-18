@@ -204,8 +204,14 @@
 							   min:0
 						   }
 					   },
-					   showTooltips: true,
-					   multiTooltipTemplate: "<%= value %>"
+					   tooltips: {
+									enabled: true,
+									callbacks: {
+										label: function(tooltipItem, data) {
+											return data.datasets[tooltipItem.datasetIndex].label + ' : ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+										}
+									}
+								}					   
 					   };
 		
 		var width = 0.9*$("#myBody").parent().width();
