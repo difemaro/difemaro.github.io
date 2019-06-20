@@ -1,6 +1,6 @@
-var APP_ID = '331597934443912'; //Facebook APP ID
+var APP_ID = '2311394075794167'; //Facebook APP ID
 var LIMIT = 100; //Number of records to bring back at any time - MAX 100
-var BASEURL = 'https://www.moduxserver.com:8080/Facebook/FacebookFeed/'; //base url of virtual directory
+var BASEURL = 'https://difemaro.github.io/WDC/FacebookFeed/'; //base url of virtual directory
 
 
 
