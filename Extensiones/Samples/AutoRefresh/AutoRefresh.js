@@ -59,7 +59,7 @@
     // This uses the window.location.origin property to retrieve the scheme, hostname, and 
     // port where the parent extension is currently running, so this string doesn't have
     // to be updated if the extension is deployed to a new location.
-    const popupUrl = `https://moduxserver.com:8080/extensions-api-master/Samples/UINamespace2/uiNamespaceDialog.html`;
+    const popupUrl = `${window.location.origin}/Extensiones/Samples/AutoRefresh/AutoRefreshDialog.html`;
 
     /**
      * This is the API call that actually displays the popup extension to the user.  The
