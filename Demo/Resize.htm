@@ -36,13 +36,15 @@ body.noscroll
 
   function fn()
   {
+	  var imgheight;
+	  var imgwidth;
 	  document.compatMode=='CSS1Compat'
 	  imgUrl = window.location.search.replace( "?", "" );
 	  imgUrl = imgUrl.replace("img=","");
 
 	  getMeta(
 		imgUrl,
-		function(width, height) { alert(width + 'px ' + height + 'px') }
+		function(width, height) {imgwidth=width; imgheight=height;}
 	  );
 
 	  window.alert(imgUrl);
@@ -63,8 +65,6 @@ body.noscroll
   //window.alert(h3);
 
 	  document.getElementById('myImage').src = imgUrl;
-	  var imgheight = document.getElementById('myImage').naturalHeight;
-	  var imgwidth = document.getElementById('myImage').naturalWidth;
 	  console.log(imgheight);
 	  console.log(imgwidth);
 	  document.getElementById('myImage').width = w;
