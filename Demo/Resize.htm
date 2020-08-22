@@ -26,12 +26,21 @@ body.noscroll
 
 <script type="text/javascript">
 
-  var imgUrl;
+	var imgUrl;
+
+	function getMeta(url, callback) {
+		var img = new Image();
+		img.src = url;
+		img.onload = function() { callback(this.width, this.height); }
+	}
+
+	getMeta(
+	  "http://snook.ca/files/mootools_83_snookca.png",
+	  function(width, height) { alert(width + 'px ' + height + 'px') }
+	);
 
   function fn()
-
   {
-
 	  document.compatMode=='CSS1Compat'
 	  imgUrl = window.location.search.replace( "?", "" );
 	  imgUrl = imgUrl.replace("img=","");
@@ -44,15 +53,11 @@ body.noscroll
 	  var h3 = window.innerHeight;
 
 	  if(h < h2) {
-
-	  h = h2;
-
+		h = h2;
 	  }
 
 	  if(h3 != 'undefined' && h < h3) {
-
 	  h = h3;
-
 	  }
 
   //window.alert(h3);
@@ -64,7 +69,6 @@ body.noscroll
 	  console.log(imgwidth);
 	  document.getElementById('myImage').width = w;
 	  document.getElementById('myImage').height = h;
-
   }
 
  
