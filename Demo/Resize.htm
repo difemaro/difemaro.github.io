@@ -36,8 +36,7 @@ body.noscroll
 		img.onload = function() { callback(this.width, this.height); }
 	}
 
-  function fn()
-  {
+function fn(){
 
 	  document.compatMode=='CSS1Compat'
 	  imgUrl = window.location.search.replace( "?", "" );
@@ -49,32 +48,33 @@ body.noscroll
 			console.log(width);
 			console.log(height);
 			imgwidth=width; 
-			imgheight=height;}
+			imgheight=height;
+
+			window.alert(imgUrl);
+
+			var w = document.body.offsetWidth;
+			var h = document.documentElement.offsetHeight;
+			var h2 = document.body.offsetHeight;
+			var h3 = window.innerHeight;
+
+			if(h < h2) {
+				h = h2;
+			}
+
+			if(h3 != 'undefined' && h < h3) {
+			  h = h3;
+			}
+
+		  //window.alert(h3);
+
+			document.getElementById('myImage').src = imgUrl;
+			console.log(imgheight);
+			console.log(imgwidth);
+			document.getElementById('myImage').width = w;
+			document.getElementById('myImage').height = h;	  	  
+	    }
 	  );
-
-	  window.alert(imgUrl);
-
-	  var w = document.body.offsetWidth;
-	  var h = document.documentElement.offsetHeight;
-	  var h2 = document.body.offsetHeight;
-	  var h3 = window.innerHeight;
-
-	  if(h < h2) {
-		h = h2;
-	  }
-
-	  if(h3 != 'undefined' && h < h3) {
-	  h = h3;
-	  }
-
-  //window.alert(h3);
-
-	  document.getElementById('myImage').src = imgUrl;
-	  console.log(imgheight);
-	  console.log(imgwidth);
-	  document.getElementById('myImage').width = w;
-	  document.getElementById('myImage').height = h;
-  }
+	}
 
  
 
