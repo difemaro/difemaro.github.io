@@ -34,16 +34,16 @@ body.noscroll
 		img.onload = function() { callback(this.width, this.height); }
 	}
 
-	getMeta(
-	  imgUrl,
-	  function(width, height) { alert(width + 'px ' + height + 'px') }
-	);
-
   function fn()
   {
 	  document.compatMode=='CSS1Compat'
 	  imgUrl = window.location.search.replace( "?", "" );
 	  imgUrl = imgUrl.replace("img=","");
+
+	  getMeta(
+		imgUrl,
+		function(width, height) { alert(width + 'px ' + height + 'px') }
+	  );
 
 	  window.alert(imgUrl);
 
