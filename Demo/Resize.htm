@@ -45,12 +45,10 @@ function fn(){
 	  getMeta(
 		imgUrl,
 		function(width, height) {
-			console.log(width);
-			console.log(height);
 			imgwidth=width; 
 			imgheight=height;
 
-			window.alert(imgUrl);
+			//window.alert(imgUrl);
 
 			var w = document.body.offsetWidth;
 			var h = document.documentElement.offsetHeight;
@@ -65,11 +63,16 @@ function fn(){
 			  h = h3;
 			}
 
-		  //window.alert(h3);
+		    if(imgwidth/w <= imageheight/h) {
+			  w = w * h/imageheight;
+			}else{
+			  h = h * w/imagewidth;
+			}
+			
+			
+			//window.alert(h3);
 
 			document.getElementById('myImage').src = imgUrl;
-			console.log(imgheight);
-			console.log(imgwidth);
 			document.getElementById('myImage').width = w;
 			document.getElementById('myImage').height = h;	  	  
 	    }
