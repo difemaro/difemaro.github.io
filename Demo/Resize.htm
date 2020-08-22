@@ -62,6 +62,10 @@ function fn(){
 			if(h3 != 'undefined' && h < h3) {
 			  h = h3;
 			}
+
+			document.getElementById('myTd').style.height = h+'px';
+
+
 			console.log(w);
 			console.log(imgwidth);
 			console.log(h);
@@ -98,9 +102,7 @@ function fn(){
 			if(h3 != 'undefined' && h < h3) {
 			  h = h3;
 			}
-			
-			document.getElementById('myTD').height = h;
-			
+					
 			console.log(w);
 			console.log(imgwidth);
 			console.log(h);
@@ -126,17 +128,15 @@ function fn(){
 </head>
 
 <body onload="fn()" class="noscroll">
-
-<table style="width:100%;">
-<tbody>
-<tr>
-<td id="myTD" style="vertical-align:center;text-align:center">
-<img src='' id="myImage" alt="Click to open image in new window"/>
-</td>
-</tr>
-</tbody>
-</table>
-
+	<table style="width:100%;">
+		<tbody>
+			<tr>
+				<td id="myTd" style="text-align:center">
+					<img src='' id="myImage" alt="Click to open image in new window"/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 
  
