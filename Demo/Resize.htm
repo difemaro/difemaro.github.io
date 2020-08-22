@@ -86,33 +86,34 @@ function fn(){
 
   window.onresize = function() {
 
-  var w = document.body.offsetWidth;
+			var w = document.body.offsetWidth;
+			var h = document.documentElement.offsetHeight;
+			var h2 = document.body.offsetHeight;
+			var h3 = window.innerHeight;
 
-  var h = document.documentElement.offsetHeight;
+			if(h < h2) {
+				h = h2;
+			}
 
-  var h2 = document.body.offsetHeight;
+			if(h3 != 'undefined' && h < h3) {
+			  h = h3;
+			}
+			console.log(w);
+			console.log(imgwidth);
+			console.log(h);
+			console.log(imgheight);
+		    if(imgwidth/w <= imgheight/h) {
+			  w = imgwidth * h/imgheight;
+			}else{
+			  h = imgheight * w/imgwidth;
+			}
+			
+			
+			//window.alert(h3);
 
-  var h3 = window.innerHeight;
-
-  if(h < h2) {
-
-  h = h2;
-
-  }
-
-  if(h3 != 'undefined' && h < h3) {
-
-  h = h3;
-
-  }
-
-  //window.alert(h3);
-
-  document.getElementById('myImage').src = imgUrl
-
-  document.getElementById('myImage').width = w
-
-  document.getElementById('myImage').height = h
+			document.getElementById('myImage').src = imgUrl;
+			document.getElementById('myImage').width = w;
+			document.getElementById('myImage').height = h;	
 
   }
 
