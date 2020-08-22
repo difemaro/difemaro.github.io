@@ -98,6 +98,9 @@ function fn(){
 			if(h3 != 'undefined' && h < h3) {
 			  h = h3;
 			}
+			
+			document.getElementById('myTable').height = h;
+			
 			console.log(w);
 			console.log(imgwidth);
 			console.log(h);
@@ -114,7 +117,7 @@ function fn(){
 			document.getElementById('myImage').src = imgUrl;
 			document.getElementById('myImage').width = w;
 			document.getElementById('myImage').height = h;	
-			document.getElementById('myTable').height = h;
+			
 
   }
 
