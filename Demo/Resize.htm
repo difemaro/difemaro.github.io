@@ -32,46 +32,38 @@ body.noscroll
 
   {
 
-  document.compatMode=='CSS1Compat'
+	  document.compatMode=='CSS1Compat'
+	  imgUrl = window.location.search.replace( "?", "" );
+	  imgUrl = imgUrl.replace("img=","");
 
-  imgUrl = window.location.search.replace( "?", "" );
+	  //window.alert(imgUrl);
 
-  imgUrl = imgUrl.replace("img=","");
+	  var w = document.body.offsetWidth;
+	  var h = document.documentElement.offsetHeight;
+	  var h2 = document.body.offsetHeight;
+	  var h3 = window.innerHeight;
 
-  //window.alert(imgUrl);
+	  if(h < h2) {
 
-  var w = document.body.offsetWidth;
+	  h = h2;
 
-  var h = document.documentElement.offsetHeight;
+	  }
 
-  var h2 = document.body.offsetHeight;
+	  if(h3 != 'undefined' && h < h3) {
 
-  var h3 = window.innerHeight;
+	  h = h3;
 
-  if(h < h2) {
-
-  h = h2;
-
-  }
-
-  if(h3 != 'undefined' && h < h3) {
-
-  h = h3;
-
-  }
+	  }
 
   //window.alert(h3);
 
-  document.getElementById('myImage').src = imgUrl
-  var imgheight document.getElementById('myImage').naturalHeight
-  var imgwidth document.getElementById('myImage').naturalWidth
-  console.log(imgheight)
-  console.log(imgwidth)
-  
-  
-  document.getElementById('myImage').width = w
-
-  document.getElementById('myImage').height = h
+	  document.getElementById('myImage').src = imgUrl;
+	  var imgheight document.getElementById('myImage').naturalHeight;
+	  var imgwidth document.getElementById('myImage').naturalWidth;
+	  console.log(imgheight);
+	  console.log(imgwidth);
+	  document.getElementById('myImage').width = w;
+	  document.getElementById('myImage').height = h;
 
   }
 
