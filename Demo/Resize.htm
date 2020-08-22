@@ -99,7 +99,7 @@ function fn(){
 			  h = h3;
 			}
 			
-			document.getElementById('myTable').height = h;
+			document.getElementById('myTD').height = h;
 			
 			console.log(w);
 			console.log(imgwidth);
@@ -127,10 +127,10 @@ function fn(){
 
 <body onload="fn()" class="noscroll">
 
-<table id="myTable" style="width:100%;">
+<table style="width:100%;">
 <tbody>
 <tr>
-<td style="vertical-align:center;text-align:center">
+<td id="myTD" style="vertical-align:center;text-align:center">
 <img src='' id="myImage" alt="Click to open image in new window"/>
 </td>
 </tr>
