@@ -27,6 +27,8 @@ body.noscroll
 <script type="text/javascript">
 
 	var imgUrl;
+	var imgheight;
+	var imgwidth;
 
 	function getMeta(url, callback) {
 		var img = new Image();
@@ -36,8 +38,7 @@ body.noscroll
 
   function fn()
   {
-	  var imgheight;
-	  var imgwidth;
+
 	  document.compatMode=='CSS1Compat'
 	  imgUrl = window.location.search.replace( "?", "" );
 	  imgUrl = imgUrl.replace("img=","");
