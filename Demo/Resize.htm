@@ -45,7 +45,11 @@ body.noscroll
 
 	  getMeta(
 		imgUrl,
-		function(width, height) {imgwidth=width; imgheight=height;}
+		function(width, height) {
+			console.log(width);
+			console.log(height);
+			imgwidth=width; 
+			imgheight=height;}
 	  );
 
 	  window.alert(imgUrl);
