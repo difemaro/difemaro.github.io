@@ -114,6 +114,7 @@ function fn(){
 			document.getElementById('myImage').src = imgUrl;
 			document.getElementById('myImage').width = w;
 			document.getElementById('myImage').height = h;	
+			document.getElementById('myTable').height = h;
 
   }
 
@@ -123,7 +124,7 @@ function fn(){
 
 <body onload="fn()" class="noscroll">
 
-<table style="width:100%;">
+<table id="myTable" style="width:100%;">
 <tbody>
 <tr>
 <td style="vertical-align:center;text-align:center">
