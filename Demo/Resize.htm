@@ -1,0 +1,39 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+<title>test</title>
+<style type="text/css">
+body.noscroll
+{
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    height:100%;
+}
+
+</style>
+<script type="text/javascript">
+  var imgUrl;
+  function fn()
+  {
+  document.compatMode=='CSS1Compat'
+  imgUrl = window.location.search.replace( "?", "" );
+  imgUrl = imgUrl.replace("img=","");
+  document.getElementById('myImage').src = imgUrl
+  }
+
+  window.onresize = function() {
+  document.getElementById('myImage').src = imgUrl
+  }
+
+</script>
+
+</head>
+
+<body onload="fn()" class="noscroll">
+
+<img src='<%= request.getParameter("img") %>' id="myImage" alt="Click to open image in new window" width="100%"/>
+
+</body>
+</html>
