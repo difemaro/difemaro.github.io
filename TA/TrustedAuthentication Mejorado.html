@@ -1,0 +1,51 @@
+<?php
+function currentuser(){
+	return 'admin';
+}
+
+function servidor(){
+	return 'https://www.moduxserver.co/trusted/';
+}
+
+function sitio(){
+	return '#';
+}
+
+function view(){
+	return '/views/GoogleAnalyticsFullparaModux/Cockpit-GA?';
+}
+
+$userid = currentuser();
+$url = servidor();
+$sitio = sitio();
+
+if ($sitio == '#'){
+	$vista = view();
+} else {
+	$vista = '/t/' . $sitio . view();
+}
+
+if ($userid) {
+	if ($sitio == '#'){
+		$loginparams = 'username='. $userid;
+	} else {
+		$loginparams = 'username='. $userid . '&target_site='. $sitio;
+	}
+	$urlparams = ':embed=yes&:toolbar=no';
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL,$url);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS,$loginparams);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	$ticket = curl_exec ($ch);
+	curl_close ($ch);
+		echo '<iframe src=','"' , $url , $ticket, $vista, $urlparams, '"
+				width="1300" height="1500">
+			  </iframe>';
+	}
+} else {
+    echo 'Log on to see Tableau content';
+}
+?>
