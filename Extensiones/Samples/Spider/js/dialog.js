@@ -71,7 +71,7 @@
 			$("#selectOpacity").append("<option value='" + 1 + "'>"+"100"+"</option>");
 			
 			//Llenar las casillas si hay una configuración cargada
-            $("#selectCategory").val(tableau.extensions.settings.get("categoryColumnNumber"));
+            $("#selectCategoryFrom").val(tableau.extensions.settings.get("categoryColumnNumber"));
 			$("#selectCategoryTo").val(tableau.extensions.settings.get("categoryColumnNumberTo"));
             $("#selectValue").val(tableau.extensions.settings.get("valueColumnNumber"));
 			$("#selectFill").val(tableau.extensions.settings.get("filled"));
