@@ -24,7 +24,7 @@
         });
         $('#cancel').click(closeDialog);
         $('#save').click(saveButton);
-        $('.select').select2();
+        //$('.select').select2();
     }
 
     function columnsUpdate() {
