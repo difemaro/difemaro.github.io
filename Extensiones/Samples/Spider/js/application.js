@@ -101,7 +101,7 @@
   //var radarChart=null;
   
   function drawChartJS() {
-	if(radarChart != null){
+	if (radarChart != null){
 		radarChart.destroy();
 		console.log("destruir");
 	}
