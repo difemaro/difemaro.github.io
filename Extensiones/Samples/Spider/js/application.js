@@ -132,6 +132,8 @@
 		var dataset = [];
 		var marksData = {};
 		var colors = ["rgba(156,148,0," + Opacity + ")", "rgba(56,0,158," + Opacity + ")", "rgba(251,154,153," + Opacity + ")", "rgba(235,223,0," + Opacity + ")",
+					  "rgba(255,244,25," + Opacity + ")", "rgba(83,0,235," + Opacity + ")", "rgba(31,120,180,"  + Opacity + ")", "rgba(51,160,44,"   + Opacity + ")",
+					  "rgba(156,148,0," + Opacity + ")", "rgba(56,0,158," + Opacity + ")", "rgba(251,154,153," + Opacity + ")", "rgba(235,223,0," + Opacity + ")",
 					  "rgba(255,244,25," + Opacity + ")", "rgba(83,0,235," + Opacity + ")", "rgba(31,120,180,"  + Opacity + ")", "rgba(51,160,44,"   + Opacity + ")"];	
 		
 		if (FilledBackground == 1){
