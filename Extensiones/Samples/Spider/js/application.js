@@ -246,8 +246,8 @@
 								}					   
 					   };
 		
-		var width = 0.9*$("#myBody").parent().width();
-		var heigth = 0.9*$("#myBody").parent().height();
+		var width = 0.95*$("#myBody").parent().width();
+		var heigth = 0.95*$("#myBody").parent().height();
 		
 		console.log($("#myBody").parent());
 		
