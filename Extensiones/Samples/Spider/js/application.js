@@ -275,6 +275,7 @@
 		
 		if (radarChart){
 			radarChart.config.data = marksData;
+			radarChart.config.options = options;
 			radarChart.update();
 		} else {
 		
