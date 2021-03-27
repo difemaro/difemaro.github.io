@@ -104,7 +104,7 @@
 		radarChart.destroy();
 		console.log("destruir");
 	}
-	console.log("Act6");
+	console.log("Act7");
 	console.log("drawchart");
 	console.log(tableau.extensions.settings.get("worksheet"));
     worksheetName = tableau.extensions.settings.get("worksheet");
