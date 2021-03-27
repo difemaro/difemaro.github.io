@@ -38,6 +38,7 @@
 		
 		worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
             var worksheetColumns = sumdata.columns;
+			console.log(worksheetColumns);
             $("#selectCategoryFrom").text("");
             $("#selectCategoryTo").text("");			
             $("#selectValue").text("");
