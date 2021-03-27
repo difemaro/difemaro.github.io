@@ -97,10 +97,10 @@
 	}
   }
 
-  var radarChart=null;
+  var radarChart;
   
   function drawChartJS() {
-	if (radarChart!=null){
+	if (radarChart){
 		radarChart.destroy();
 		console.log("destruir");
 	}
