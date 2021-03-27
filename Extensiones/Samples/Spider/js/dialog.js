@@ -98,6 +98,8 @@
     }
 
     function closeDialog() {
+		var spinner = document.getElementById("spin");
+		spinner.style.display = "none";
         tableau.extensions.ui.closeDialog("10");
     }
 
