@@ -100,6 +100,10 @@
   var radarChart=null;
   
   function drawChartJS() {
+	if(radarChart!=null){
+		radarChart.destroy();
+		console.log("destruir");
+	}
 	console.log("drawchart");
 	console.log(tableau.extensions.settings.get("worksheet"));
     worksheetName = tableau.extensions.settings.get("worksheet");
@@ -201,7 +205,7 @@
 		
 		var options = {responsive: true,
 					   animation: true,
-					   maintainAspectRatio: true,
+					   maintainAspectRatio: false,
 					   scale: {
 						   ticks: {
 							   min:0
@@ -240,10 +244,7 @@
 		bd.style.height = minwh + "px";
 		bd.style.width = minwh + "px";
 		
-		if(radarChart!=null){
-			radarChart.destroy();
-		}
-		
+	
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
 		data: marksData,
