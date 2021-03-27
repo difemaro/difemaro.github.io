@@ -101,10 +101,11 @@
   //var radarChart=null;
   
   function drawChartJS() {
-	if (radarChart != null){
-		radarChart.destroy();
-		console.log("destruir");
-	}
+//	if (radarChart != null){
+//		radarChart.destroy();
+//		console.log("destruir");
+//	}
+	console.log("Act");
 	console.log("drawchart");
 	console.log(tableau.extensions.settings.get("worksheet"));
     worksheetName = tableau.extensions.settings.get("worksheet");
