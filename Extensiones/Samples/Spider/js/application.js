@@ -272,7 +272,7 @@
 		bd.style.width = minwh + "px";
 		
 		var spinner = document.getElementById("spin");
-		spin.style.display = "none";
+		spinner.style.display = "none";
 		
 		console.log(options);
 		
@@ -292,6 +292,8 @@
   }
   
   function configure() {
+	var spinner = document.getElementById("spin");
+	spinner.style.display ="inline-block"
     const popupUrl=`${window.location.origin}/Extensiones/Samples/Spider/dialog.html`;
     let defaultPayload="";
     tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:550, width:450 }).then((closePayload) => {
