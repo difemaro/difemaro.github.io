@@ -12,6 +12,7 @@
   let valueColumnNumber = null;
   let FilledBackground = null;
   let Opacity = null;
+  let Legend = null;
 
   $(document).ready(function () { 
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
@@ -46,6 +47,7 @@
     valueColumnNumber = tableau.extensions.settings.get("valueColumnNumber");
 	FilledBackground = tableau.extensions.settings.get("filled");
 	Opacity = tableau.extensions.settings.get("opacity");
+	Legend = tableau.extensions.settings.get("legend");
 	
     // If settings are changed we will unregister and re register the listener.
     if (unregisterFilterEventListener != null) {
@@ -113,6 +115,7 @@
     valueColumnNumber = tableau.extensions.settings.get("valueColumnNumber");
 	FilledBackground = tableau.extensions.settings.get("filled");
 	Opacity = tableau.extensions.settings.get("opacity");
+	Legend = tableau.extensions.settings.get("legend");
 	
 	worksheet=tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) {
       return sheet.name===worksheetName;
@@ -133,6 +136,13 @@
 		}else{
 			var FillChart = false;
 		}
+		
+		if (Legend == 1){
+			var ShowLegend = true;
+		}else{
+			var ShowLegend = false;
+		}
+		
 						  
 		//Definir las series del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
@@ -207,6 +217,9 @@
 		var options = {responsive: true,
 //					   animation: true,
 					   maintainAspectRatio: false,
+					   legend: {
+							display: ShowLegend
+					   },
 					   scale: {
 						   ticks: {
 							   min:0
