@@ -299,7 +299,8 @@
     tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:550, width:450 }).then((closePayload) => {
 		console.log("Exito");
 		drawChartJS();
-		
+		var spinner = document.getElementById("spin");
+		spinner.style.display = "none";
     }).catch((error) => {
       switch (error.errorCode) {
         case tableau.ErrorCodes.DialogClosedByUser:
