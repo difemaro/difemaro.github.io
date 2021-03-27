@@ -1,0 +1,103 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/dialog.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+	<script src="../../lib/tableau.extensions.1.latest.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+</head>
+<body>
+	<div class="container">
+		<table style="margin-bottom:0px">
+		<tbody>
+		<tr>
+			<td style="vertical-align:middle;">
+				<img src="https://www.modux.co/wp-content/uploads/2016/10/Modux-logo6.png" style="width: 30%; min-width: 150px;vertical-align: middle;">
+			</td>
+			<td style="text-align: right;vertical-align:middle;">
+				<img src="https://www.modux.co/wp-content/uploads/2019/06/TableauPartner.png" alt="Tableau Colombia" style="width: 28%; min-width: 120px;">
+			</td>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Spider Extension / <small> Settings</small></h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Worksheet Data Source</span>
+                <select id="selectWorksheet" class="select">
+                    <option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Select Series</span>
+                <select id="selectCategoryFrom" class="select">
+                    <option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Select Category</span>
+                <select id="selectCategoryTo" class="select">
+                    <option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>	
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Select Value</span>
+                <select id="selectValue" class="select">
+                    <option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Filled?</span>
+                <select id="selectFill" class="select">
+					<option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Legend?</span>
+                <select id="selectLegend" class="select">
+					<option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Axis Labels?</span>
+                <select id="selectAxisLabels" class="select">
+					<option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Opacidad</span>
+                <select id="selectOpacity" class="select">
+					<option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+		
+        <div class="row dialog-buttons" style="padding-left:20px">
+            <span id="error"></span>
+            <button id="save" class="btn btn-success">Save</button>
+            <button id="cancel" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>
