@@ -13,6 +13,7 @@
   let FilledBackground = null;
   let Opacity = null;
   let Legend = null;
+  let Axislabel = null;
 
   $(document).ready(function () { 
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
@@ -48,6 +49,7 @@
 	FilledBackground = tableau.extensions.settings.get("filled");
 	Opacity = tableau.extensions.settings.get("opacity");
 	Legend = tableau.extensions.settings.get("legend");
+	Axislabel = tableau.extensions.settings.get("axislabel");
 	
     // If settings are changed we will unregister and re register the listener.
     if (unregisterFilterEventListener != null) {
@@ -143,6 +145,12 @@
 			var ShowLegend = false;
 		}
 		
+		if (Axislabel == 1){
+			var ShowAxislabel = true;
+		}else{
+			var ShowAxislabel = false;
+		}
+		
 						  
 		//Definir las series del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
@@ -222,8 +230,10 @@
 					   },
 					   scale: {
 						   ticks: {
-							   min:0
+							   min:0,
+							   display: ShowAxislabel
 						   }
+						   
 					   },
 					   tooltips: {
 									enabled: true,

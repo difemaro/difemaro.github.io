@@ -60,7 +60,11 @@
 
 			//Llenar el box de Legend
 			$("#selectLegend").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
-			$("#selectLegend").append("<option value='" + 2 + "'>"+"No"+"</option>");			
+			$("#selectLegend").append("<option value='" + 2 + "'>"+"No"+"</option>");
+
+			//Llenar el box de Legend
+			$("#selectAxisLabels").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
+			$("#selectAxisLabels").append("<option value='" + 2 + "'>"+"No"+"</option>");
 			
 			//Llenar el box de opacidad
 			$("#selectOpacity").append("<option value='" + 0.1 + "'>"+"10"+"</option>");
@@ -80,6 +84,7 @@
             $("#selectValue").val(tableau.extensions.settings.get("valueColumnNumber"));
 			$("#selectFill").val(tableau.extensions.settings.get("filled"));
 			$("#selectLegend").val(tableau.extensions.settings.get("legend"));
+			$("#selectAxisLabels").val(tableau.extensions.settings.get("axislabel"));			
 			$("#selectOpacity").val(tableau.extensions.settings.get("opacity"));
         });
     }
@@ -99,7 +104,8 @@
 		tableau.extensions.settings.set("categoryColumnNumberTo", $("#selectCategoryTo").val());
         tableau.extensions.settings.set("valueColumnNumber", $("#selectValue").val());
 		tableau.extensions.settings.set("filled", $("#selectFill").val());
-		tableau.extensions.settings.set("legend", $("#selectLegend").val());		
+		tableau.extensions.settings.set("legend", $("#selectLegend").val());
+		tableau.extensions.settings.set("axislabel", $("#selectAxisLabels").val());		
 		tableau.extensions.settings.set("opacity", $("#selectOpacity").val());
 		tableau.extensions.settings.set("configured", 1);
 		tableau.extensions.settings.saveAsync().then((currentSettings) => {
