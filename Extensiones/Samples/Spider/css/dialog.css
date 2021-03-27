@@ -132,6 +132,7 @@
     height: 0;
     min-height: 24px;
     position: relative;
+	min-width: 230px;
 }
 
 .flu1heq.line {
