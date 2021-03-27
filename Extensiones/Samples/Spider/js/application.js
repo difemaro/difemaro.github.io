@@ -108,7 +108,7 @@
 		radarChart.destroy();
 		console.log("destruir");
 	}
-	console.log("Act7");
+	console.log("Act8");
 	console.log("drawchart");
 	console.log(tableau.extensions.settings.get("worksheet"));
     worksheetName = tableau.extensions.settings.get("worksheet");
@@ -272,14 +272,17 @@
 		bd.style.width = minwh + "px";
 		
 		console.log(options);
-	
-		radarChart = new Chart($("#myChart"), {
-		type: 'radar',
-		data: marksData,
-		options: options
+		
+		if (radarChart){
+			radarChart.config.data = marksData;
+			radarChart.update();
+		} else {
+		
+			radarChart = new Chart($("#myChart"), {
+			type: 'radar',
+			data: marksData,
+			options: options
 		});
-		
-		
 	})
   }
   
