@@ -104,10 +104,10 @@
   var radarChart;
   
   function drawChartJS() {
-	if (radarChart){
-		radarChart.destroy();
-		console.log("destruir");
-	}
+//	if (radarChart){
+//		radarChart.destroy();
+//		console.log("destruir");
+//	}
 	console.log("Act8");
 	console.log("drawchart");
 	console.log(tableau.extensions.settings.get("worksheet"));
@@ -282,7 +282,8 @@
 			type: 'radar',
 			data: marksData,
 			options: options
-		});
+			});
+		}
 	})
   }
   
