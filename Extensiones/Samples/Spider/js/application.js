@@ -118,6 +118,7 @@
 	FilledBackground = tableau.extensions.settings.get("filled");
 	Opacity = tableau.extensions.settings.get("opacity");
 	Legend = tableau.extensions.settings.get("legend");
+	Axislabel = tableau.extensions.settings.get("axislabel");
 	
 	worksheet=tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) {
       return sheet.name===worksheetName;
