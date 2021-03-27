@@ -12,7 +12,6 @@
   let valueColumnNumber = null;
   let FilledBackground = null;
   let Opacity = null;
-  let radarChart=null;
 
   $(document).ready(function () { 
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
@@ -98,14 +97,14 @@
 	}
   }
 
-  //var radarChart=null;
+  var radarChart=null;
   
   function drawChartJS() {
-	if (radarChart != null){
+	if (radarChart!=null){
 		radarChart.destroy();
 		console.log("destruir");
 	}
-	console.log("Act3");
+	console.log("Act4");
 	console.log("drawchart");
 	console.log(tableau.extensions.settings.get("worksheet"));
     worksheetName = tableau.extensions.settings.get("worksheet");
