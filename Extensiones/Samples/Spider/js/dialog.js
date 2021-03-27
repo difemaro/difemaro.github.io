@@ -34,9 +34,7 @@
 
         var worksheet = worksheets.find(function (sheet) {
             return sheet.name === worksheetName;
-        });      
-
-        
+        });       
 		
 		worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
             var worksheetColumns = sumdata.columns;
@@ -44,7 +42,9 @@
             $("#selectCategoryTo").text("");			
             $("#selectValue").text("");
 			$("#selectFill").text("");
-			$("#selectOpacity").text("");
+			$("#selectLegend").text("");
+			$("#selectAxisLabels").text("");
+			$("#selectOpacity").text("");			
 			
             var counter = 1;
             worksheetColumns.forEach(function (current_value) {
