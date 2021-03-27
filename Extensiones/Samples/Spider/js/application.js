@@ -244,6 +244,7 @@
 		bd.style.height = minwh + "px";
 		bd.style.width = minwh + "px";
 		
+		console.log(options);
 	
 		var radarChart = new Chart($("#myChart"), {
 		type: 'radar',
