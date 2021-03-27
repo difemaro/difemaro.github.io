@@ -12,7 +12,7 @@
   let valueColumnNumber = null;
   let FilledBackground = null;
   let Opacity = null;
-  let radarChart=null;
+//  let radarChart=null;
 
   $(document).ready(function () { 
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
