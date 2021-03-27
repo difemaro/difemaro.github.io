@@ -247,7 +247,7 @@
 		
 		console.log(options);
 	
-		var radarChart = new Chart($("#myChart"), {
+		radarChart = new Chart($("#myChart"), {
 		type: 'radar',
 		data: marksData,
 		options: options
