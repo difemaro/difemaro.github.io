@@ -49,9 +49,12 @@
 			
             var counter = 1;
             worksheetColumns.forEach(function (current_value) {
-				$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
-				$("#selectCategoryTo").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");				
-				$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");			
+				if (current_value.dataType != "integer" && current_value.dataType != "float"){
+					$("#selectCategoryFrom").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");
+					$("#selectCategoryTo").append("<option value='" + counter + "'>" + current_value.fieldName + "</option>");				
+				}else{
+				$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
+				}
                 counter++;
             });
 					
