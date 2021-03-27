@@ -206,7 +206,7 @@
 		//console.log(marksData);
 		
 		var options = {responsive: true,
-					   animation: true,
+//					   animation: true,
 					   maintainAspectRatio: false,
 					   scale: {
 						   ticks: {
