@@ -97,7 +97,7 @@
 	}
   }
 
-  var radarChart=null;
+  //var radarChart=null;
   
   function drawChartJS() {
 	if(radarChart != null){
@@ -180,8 +180,8 @@
 					dataserie[k] = dataserie[k] + worksheetData[j][valueColumnNumber-1].value;
 				}
 			}
-			console.log("Dataserie");
-			console.log(dataserie);
+			//console.log("Dataserie");
+			//console.log(dataserie);
 			datasetrow = {label: label[i],
 						  backgroundColor: colors[i],
 						  data: Object.values(dataserie),
