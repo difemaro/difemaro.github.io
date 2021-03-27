@@ -271,6 +271,9 @@
 		bd.style.height = minwh + "px";
 		bd.style.width = minwh + "px";
 		
+		var spinner = document.getElementById("spin");
+		spin.style.display = "none";
+		
 		console.log(options);
 		
 		if (radarChart){
