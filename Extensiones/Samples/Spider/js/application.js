@@ -293,7 +293,7 @@
   
   function configure() {
 	var spinner = document.getElementById("spin");
-	spinner.style.display ="inline-block"
+	spinner.style.display ="inline-block";
     const popupUrl=`${window.location.origin}/Extensiones/Samples/Spider/dialog.html`;
     let defaultPayload="";
     tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:550, width:450 }).then((closePayload) => {
