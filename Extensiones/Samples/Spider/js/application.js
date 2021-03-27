@@ -305,6 +305,8 @@
       switch (error.errorCode) {
         case tableau.ErrorCodes.DialogClosedByUser:
           console.log("Dialog was closed by user");
+		  var spinner = document.getElementById("spin");
+		  spinner.style.display = "none";
           break;
         default:
           console.error(error.message);
