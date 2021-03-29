@@ -267,13 +267,13 @@
 		
 		console.log(options);
 		
-		if (radarChart){
-			radarChart.config.data = marksData;
-			radarChart.options = options;
-			radarChart.update();
+		if (polarChart){
+			polarChart.config.data = marksData;
+			polarChart.options = options;
+			polarChart.update();
 		} else {
 		
-			radarChart = new Chart($("#myChart"), {
+			polarChart = new Chart($("#myChart"), {
 			type: 'polarArea',
 			data: marksData,
 			options: options
