@@ -184,27 +184,27 @@
 		var k=0;
 		//console.log(worksheetData);		
 		
-		for (var i=0; i<label.length; i++) {
-			dataserie.fill(0);
-			for (var j=0; j<worksheetData.length; j++){
-				k=0;
-				while (worksheetData[j][categoryColumnNumber-1].formattedValue != labels[k]){
-					k=k+1;
-				}
-				dataserie[k] = dataserie[k] + worksheetData[j][valueColumnNumber-1].value;
+
+		dataserie.fill(0);
+		for (var j=0; j<worksheetData.length; j++){
+			k=0;
+			while (worksheetData[j][categoryColumnNumber-1].formattedValue != label[k]){
+				k=k+1;
 			}
-			//console.log("Dataserie");
-			//console.log(dataserie);
-			datasetrow = {label: label,
-						  backgroundColor: colors,
-						  data: Object.values(dataserie),
-						  fill: FillChart,
-						  borderColor:colors,
-						  borderWidth:1};
-			//console.log("Dataserow");
-			//console.log(datasetrow);
-			dataset.push(datasetrow);
+			dataserie[k] = dataserie[k] + worksheetData[j][valueColumnNumber-1].value;
 		}
+		//console.log("Dataserie");
+		//console.log(dataserie);
+		datasetrow = {label: label,
+					  backgroundColor: colors,
+					  data: Object.values(dataserie),
+					  fill: FillChart,
+					  borderColor:colors,
+					  borderWidth:1};
+		//console.log("Dataserow");
+		//console.log(datasetrow);
+		dataset.push(datasetrow);
+
 
 		//console.log("dataset");
 		//console.log(dataset);
