@@ -1,0 +1,114 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="css/dialog.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+	<script src="../../lib/tableau.extensions.1.latest.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+</head>
+
+<body>
+	<div class="divconfigure">
+		<h1 class="h1configure">Configure Extension</h1>
+	</div>
+	<div class="container">
+		<table class="logotable">
+		<tbody>
+		<tr>
+			<td style="vertical-align:middle;min-width:50%;">
+				<img src="https://www.modux.co/wp-content/uploads/2016/10/Modux-logo6.png" style="margin-top: -10px;margin-bottom: -10px; max-height:60px;vertical-align: middle;">
+			</td>
+			<td style="text-align: right;vertical-align:middle;min-width:50%;">
+				<img src="https://www.modux.co/wp-content/uploads/2019/06/TableauPartner.png" alt="Tableau Colombia" style="max-height:40px">
+			</td>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+
+    <div class="container">
+        <div class="divextensiontile">
+            <h1 class="h1extensiontitle">Spider Extension / Settings</h1>
+        </div>
+		<div class="divseparator">
+		</div>
+        <div class="multi-select">
+			<div class="multi-select__title">
+				Worksheet Data Source*
+			</div>
+			<div class="flu1heq line grow">
+				<select id="selectWorksheet" class="fl8fz1p">
+					<option disabled selected="selected">-- None Selected --</option>
+				</select>
+			</div>
+        </div>
+        <div class="multi-select">
+			<div class="multi-select__title">
+				Select Category*
+			</div>
+			<div class="flu1heq line grow">
+				<select id="selectCategoryFrom" class="fl8fz1p">
+					<option disabled selected="selected">-- None Selected --</option>
+				</select>
+			</div>
+        </div>
+        <div class="multi-select">
+			<div class="multi-select__title">
+				Select Value*
+			</div>
+			<div class="flu1heq line grow">
+				<select id="selectValue" class="fl8fz1p">
+					<option disabled selected="selected">-- None Selected --</option>
+				</select>
+			</div>
+        </div>		
+        <div class="multi-select">
+			<div class="multi-select__title">
+				Filled?*
+			</div>
+			<div class="flu1heq line grow">
+				<select id="selectFill" class="fl8fz1p">
+					<option disabled selected="selected">-- None Selected --</option>
+				</select>
+			</div>
+        </div>	
+        <div class="multi-select">
+			<div class="multi-select__title">
+				Legend?*
+			</div>
+			<div class="flu1heq line grow">
+				<select id="selectLegend" class="fl8fz1p">
+					<option disabled selected="selected">-- None Selected --</option>
+				</select>
+			</div>
+        </div>	
+        <div class="multi-select">
+			<div class="multi-select__title">
+				Axis Labels?*
+			</div>
+			<div class="flu1heq line grow">
+				<select id="selectAxisLabels" class="fl8fz1p">
+					<option disabled selected="selected">-- None Selected --</option>
+				</select>
+			</div>
+        </div>	
+        <div class="multi-select">
+			<div class="multi-select__title">
+				Opacity*
+			</div>
+			<div class="flu1heq line grow">
+				<select id="selectOpacity" class="fl8fz1p">
+					<option disabled selected="selected">-- None Selected --</option>
+				</select>
+			</div>
+        </div>		
+        <div class="configuration__controls">
+            <span id="error"></span>
+            <button class="f1izb1zy" style="margin-right:12px"  id="save" >Save</button>
+            <button class="f1l9nhsu" id="cancel" >Cancel</button>
+        </div>
+    </div>
+</body>
+</html>
