@@ -209,7 +209,7 @@
 		//console.log("dataset");
 		//console.log(dataset);
 
-		marksData = {labels: labels,
+		marksData = {labels: label,
 					 datasets: dataset
 					};
 
