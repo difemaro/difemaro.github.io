@@ -181,7 +181,7 @@
 		//Definir los valores para cada serie
 		var dataserie = Array(label.length);
 				
-		//var k=0;
+		var k=0;
 		//console.log(worksheetData);		
 		
 		for (var i=0; i<label.length; i++) {
