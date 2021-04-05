@@ -41,7 +41,7 @@
 			console.log(worksheetColumns);
             $("#selectCategoryFrom").text("");
             $("#selectValue").text("");
-			$("#selectFill").text("");
+			//$("#selectFill").text("");
 			$("#selectLegend").text("");
 			$("#selectAxisLabels").text("");
 			$("#selectOpacity").text("");			
@@ -57,8 +57,8 @@
             });
 					
 			//Llenar el box de rellenar o no			
-			$("#selectFill").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
-			$("#selectFill").append("<option value='" + 2 + "'>"+"No"+"</option>");
+			//$("#selectFill").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
+			//$("#selectFill").append("<option value='" + 2 + "'>"+"No"+"</option>");
 
 			//Llenar el box de Legend
 			$("#selectLegend").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
@@ -84,7 +84,7 @@
             $("#selectCategoryFrom").val(tableau.extensions.settings.get("categoryColumnNumber"));
 			$("#selectCategoryTo").val(tableau.extensions.settings.get("categoryColumnNumberTo"));
             $("#selectValue").val(tableau.extensions.settings.get("valueColumnNumber"));
-			$("#selectFill").val(tableau.extensions.settings.get("filled"));
+			//$("#selectFill").val(tableau.extensions.settings.get("filled"));
 			$("#selectLegend").val(tableau.extensions.settings.get("legend"));
 			$("#selectAxisLabels").val(tableau.extensions.settings.get("axislabel"));			
 			$("#selectOpacity").val(tableau.extensions.settings.get("opacity"));
@@ -104,7 +104,7 @@
         tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
         tableau.extensions.settings.set("categoryColumnNumber", $("#selectCategoryFrom").val());
         tableau.extensions.settings.set("valueColumnNumber", $("#selectValue").val());
-		tableau.extensions.settings.set("filled", $("#selectFill").val());
+		//tableau.extensions.settings.set("filled", $("#selectFill").val());
 		tableau.extensions.settings.set("legend", $("#selectLegend").val());
 		tableau.extensions.settings.set("axislabel", $("#selectAxisLabels").val());		
 		tableau.extensions.settings.set("opacity", $("#selectOpacity").val());
