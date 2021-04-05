@@ -233,9 +233,7 @@
 									enabled: true,
 									callbacks: {
 										label: function(tooltipItem, data) {
-											console.log(tooltipItem.datasetIndex);
-											console.log(data.datasets);
-											return data.datasets[tooltipItem.datasetIndex].label + ' : ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+											return data.datasets[tooltipItem.datasetIndex].label[tooltipItem.index] + ' : ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
 										}
 									}
 								}					   
