@@ -10,7 +10,7 @@
   let categoryColumnNumber = null;
   //let categoryColumnNumberTo = null;
   let valueColumnNumber = null;
-  let FilledBackground = null;
+  //let FilledBackground = null;
   let Opacity = null;
   let Legend = null;
   let Axislabel = null;
@@ -46,7 +46,7 @@
     categoryColumnNumber = tableau.extensions.settings.get("categoryColumnNumber");
 	//categoryColumnNumberTo = tableau.extensions.settings.get("categoryColumnNumberTo");
     valueColumnNumber = tableau.extensions.settings.get("valueColumnNumber");
-	FilledBackground = tableau.extensions.settings.get("filled");
+	//FilledBackground = tableau.extensions.settings.get("filled");
 	Opacity = tableau.extensions.settings.get("opacity");
 	Legend = tableau.extensions.settings.get("legend");
 	Axislabel = tableau.extensions.settings.get("axislabel");
@@ -111,7 +111,7 @@
     categoryColumnNumber = tableau.extensions.settings.get("categoryColumnNumber");
 	//categoryColumnNumberTo = tableau.extensions.settings.get("categoryColumnNumberTo");
     valueColumnNumber = tableau.extensions.settings.get("valueColumnNumber");
-	FilledBackground = tableau.extensions.settings.get("filled");
+	//FilledBackground = tableau.extensions.settings.get("filled");
 	Opacity = tableau.extensions.settings.get("opacity");
 	Legend = tableau.extensions.settings.get("legend");
 	Axislabel = tableau.extensions.settings.get("axislabel");
@@ -132,11 +132,11 @@
 					  "rgba(156,148,0," + Opacity + ")", "rgba(56,0,158," + Opacity + ")", "rgba(251,154,153," + Opacity + ")", "rgba(235,223,0," + Opacity + ")",
 					  "rgba(255,244,25," + Opacity + ")", "rgba(83,0,235," + Opacity + ")", "rgba(31,120,180,"  + Opacity + ")", "rgba(51,160,44,"   + Opacity + ")"];	
 		
-		if (FilledBackground == 1){
-			var FillChart = true;
-		}else{
-			var FillChart = false;
-		}
+		//if (FilledBackground == 1){
+		//	var FillChart = true;
+		//}else{
+		//	var FillChart = false;
+		//}
 		
 		if (Legend == 1){
 			var ShowLegend = true;
@@ -198,7 +198,7 @@
 		datasetrow = {label: label,
 					  backgroundColor: colors,
 					  data: Object.values(dataserie),
-					  fill: FillChart,
+					  //fill: FillChart,
 					  borderColor:colors,
 					  borderWidth:1};
 		//console.log("Dataserow");
