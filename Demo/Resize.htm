@@ -32,6 +32,7 @@ function fn(){
 
 	  document.compatMode=='CSS1Compat'
 	  const queryString = window.location.search;
+	  console.log(queryString);
 	  const urlParams = new URLSearchParams(queryString);
 	  console.log(urlParams);
 	  imgUrl = urlParams.get('img');
