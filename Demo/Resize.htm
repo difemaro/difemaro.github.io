@@ -39,6 +39,7 @@ function fn(){
 	  link = urlParams.get('link');
 	  console.log('link');
 	  target = urlParams.get('target');
+	  background = urlParams.get('color');
 	  //imgUrl = window.location.search.replace( "?", "" );
 	  //imgUrl = imgUrl.replace("img=","");
 	  if (link){
@@ -48,6 +49,9 @@ function fn(){
 		if (target == "new"){
 			document.getElementById('myLink').target = "_blank";
 		}
+	  }
+	  if (background){
+		document.getElementById('myBody').style.background-color = background;
 	  }
 	  
 	  getMeta(
@@ -140,7 +144,7 @@ function fn(){
 
 </head>
 
-<body onload="fn()" class="noscroll" style="margin:0px">
+<body id="myBody" onload="fn()" class="noscroll" style="margin:0px" background-color="white">
 	<table style="width:100%;border-spacing:0px">
 		<tbody>
 			<tr>
