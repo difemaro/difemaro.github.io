@@ -38,11 +38,18 @@ function fn(){
 	  console.log(imgUrl);
 	  link = urlParams.get('link');
 	  console.log('link');
+	  target = urlParams.get('target');
 	  //imgUrl = window.location.search.replace( "?", "" );
 	  //imgUrl = imgUrl.replace("img=","");
 	  if (link){
 		document.getElementById('myLink').href = link;
 	  }
+	  if (target){
+		if (target == "new"){
+			document.getElementById('myLink').target = "_blank";
+		}
+	  }
+	  
 	  getMeta(
 		imgUrl,
 		function(width, height) {
