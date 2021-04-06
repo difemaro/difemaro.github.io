@@ -37,9 +37,10 @@ function fn(){
 	  imgUrl = urlParams.get('img');
 	  console.log(imgUrl);
 	  link = urlParams.get('link');
-	  console.log('link');
+	  console.log(link);
 	  target = urlParams.get('target');
 	  background = urlParams.get('color');
+	  console.log(background);
 	  //imgUrl = window.location.search.replace( "?", "" );
 	  //imgUrl = imgUrl.replace("img=","");
 	  if (link){
@@ -144,7 +145,7 @@ function fn(){
 
 </head>
 
-<body id="myBody" onload="fn()" class="noscroll" style="margin:0px;background-color:white;">
+<body onload="fn()" id="myBody" class="noscroll" style="margin:0px;background-color:white;">
 	<table style="width:100%;border-spacing:0px">
 		<tbody>
 			<tr>
