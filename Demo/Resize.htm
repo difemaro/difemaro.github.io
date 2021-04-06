@@ -34,7 +34,7 @@ function fn(){
 	  const queryString = window.location.search;
 	  const urlParams = new URLSearchParams(queryString);
 	  console.log(urlParams);
-	  const imgUrl = urlParams.get('img');
+	  imgUrl = urlParams.get('img');
 	  console.log(url);
 	  //imgUrl = window.location.search.replace( "?", "" );
 	  //imgUrl = imgUrl.replace("img=","");
