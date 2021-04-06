@@ -36,9 +36,13 @@ function fn(){
 	  console.log(urlParams);
 	  imgUrl = urlParams.get('img');
 	  console.log(imgUrl);
+	  link = urlParams.get('link');
+	  console.log('link');
 	  //imgUrl = window.location.search.replace( "?", "" );
 	  //imgUrl = imgUrl.replace("img=","");
-
+	  if (link){
+		document.getElementById('myLink').href = link;
+	  }
 	  getMeta(
 		imgUrl,
 		function(width, height) {
@@ -81,6 +85,8 @@ function fn(){
 			document.getElementById('myImage').height = h;	  	  
 	    }
 	  );
+	  
+	  
 	}
 
  
@@ -132,7 +138,9 @@ function fn(){
 		<tbody>
 			<tr>
 				<td id="myTd" style="text-align:center;padding:0px">
-					<img src='' id="myImage" alt="Click to open image in new window"/>
+					<a id="myLink" href="">
+						<img src='' id="myImage" alt="Click to open image in new window"/>
+					</a>
 				</td>
 			</tr>
 		</tbody>
