@@ -166,7 +166,7 @@
 		}else{
 			var RevAxislabel = false;
 		}
-		
+		console.log(RevAxislabel);
 						  
 		//Definir las series del Radial Chart
 		for (var i=0; i<worksheetData.length; i++) {
@@ -309,7 +309,7 @@
 	spinner.style.display ="inline-block";
     const popupUrl=`${window.location.origin}/Extensiones/Samples/Spider/dialog.html`;
     let defaultPayload="";
-    tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:550, width:450 }).then((closePayload) => {
+    tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:575, width:450 }).then((closePayload) => {
 		console.log("Exito");
 		drawChartJS();
 		var spinner = document.getElementById("spin");
