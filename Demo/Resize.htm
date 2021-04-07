@@ -31,10 +31,9 @@ body.noscroll
 function fn(){
 
 	  document.compatMode=='CSS1Compat'
-	  var queryString = window.location.search;
-	  console.log(window.location.href);
-	  console.log(queryString);
+	  var queryString = window.location.href;
 	  queryString.replace("#","%23");
+	  queryString = queryString.substring(str.indexOf("?"));
 	  console.log(queryString);
 	  const urlParams = new URLSearchParams(queryString);
 	  console.log(urlParams);
