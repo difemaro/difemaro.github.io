@@ -33,7 +33,7 @@ function fn(){
 	  document.compatMode=='CSS1Compat'
 	  var queryString = window.location.href;
 	  queryString.replace("#","%23");
-	  queryString = queryString.substring(str.indexOf("?"));
+	  queryString = queryString.substring(queryString.indexOf("?"));
 	  console.log(queryString);
 	  const urlParams = new URLSearchParams(queryString);
 	  console.log(urlParams);
