@@ -14,6 +14,7 @@
   let Opacity = null;
   let Legend = null;
   let Axislabel = null;
+  let reverseAxislabel = null;
 
   $(document).ready(function () { 
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
@@ -50,6 +51,7 @@
 	Opacity = tableau.extensions.settings.get("opacity");
 	Legend = tableau.extensions.settings.get("legend");
 	Axislabel = tableau.extensions.settings.get("axislabel");
+	reverseAxislabel = tableau.extensions.settings.get("reverseaxislabel");
 	
     // If settings are changed we will unregister and re register the listener.
     if (unregisterFilterEventListener != null) {
@@ -119,6 +121,7 @@
 	Opacity = tableau.extensions.settings.get("opacity");
 	Legend = tableau.extensions.settings.get("legend");
 	Axislabel = tableau.extensions.settings.get("axislabel");
+	reverseAxislabel = tableau.extensions.settings.get("reverseaxislabel");
 	
 	worksheet=tableau.extensions.dashboardContent.dashboard.worksheets.find(function (sheet) {
       return sheet.name===worksheetName;
@@ -152,6 +155,16 @@
 			var ShowAxislabel = true;
 		}else{
 			var ShowAxislabel = false;
+		}
+		
+		if (reverseAxislabel){ 
+			if (reverseAxislabel == 1){
+				var RevAxislabel = true;
+			}else{
+				var RevAxislabel = false;
+			}
+		}else{
+			var RevAxislabel = false;
 		}
 		
 						  
@@ -235,8 +248,8 @@
 						   ticks: {
 							   min:0,
 							   display: ShowAxislabel
-						   }
-						   
+						   },
+						   reverse: RevAxislabel
 					   },
 					   tooltips: {
 									enabled: true,

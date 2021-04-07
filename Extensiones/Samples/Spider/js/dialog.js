@@ -66,9 +66,14 @@
 			$("#selectLegend").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
 			$("#selectLegend").append("<option value='" + 2 + "'>"+"No"+"</option>");
 
-			//Llenar el box de Legend
+			//Llenar el box de Axis Labels
 			$("#selectAxisLabels").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
 			$("#selectAxisLabels").append("<option value='" + 2 + "'>"+"No"+"</option>");
+
+			//Llenar el box de Axis Reversed
+			$("#reverseAxisLabels").append("<option value='" + 1 + "'>"+"Yes"+"</option>");
+			$("#reverseAxisLabels").append("<option value='" + 2 + "'>"+"No"+"</option>");
+
 			
 			//Llenar el box de opacidad
 			$("#selectOpacity").append("<option value='" + 0.1 + "'>"+"10"+"</option>");
@@ -109,7 +114,8 @@
         tableau.extensions.settings.set("valueColumnNumber", $("#selectValue").val());
 		tableau.extensions.settings.set("filled", $("#selectFill").val());
 		tableau.extensions.settings.set("legend", $("#selectLegend").val());
-		tableau.extensions.settings.set("axislabel", $("#selectAxisLabels").val());		
+		tableau.extensions.settings.set("axislabel", $("#selectAxisLabels").val());
+		tableau.extensions.settings.set("reverseaxislabel", $("#reverseAxisLabels").val());
 		tableau.extensions.settings.set("opacity", $("#selectOpacity").val());
 		tableau.extensions.settings.set("configured", 1);
 		tableau.extensions.settings.saveAsync().then((currentSettings) => {
