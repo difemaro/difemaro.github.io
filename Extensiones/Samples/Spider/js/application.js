@@ -247,9 +247,9 @@
 					   scale: {
 						   ticks: {
 							   min:0,
-							   display: ShowAxislabel
+							   display: ShowAxislabel,
+							   reverse: RevAxislabel
 						   },
-						   reverse: RevAxislabel
 					   },
 					   tooltips: {
 									enabled: true,
