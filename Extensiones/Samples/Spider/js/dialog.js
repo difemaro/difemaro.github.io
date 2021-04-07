@@ -93,7 +93,8 @@
             $("#selectValue").val(tableau.extensions.settings.get("valueColumnNumber"));
 			$("#selectFill").val(tableau.extensions.settings.get("filled"));
 			$("#selectLegend").val(tableau.extensions.settings.get("legend"));
-			$("#selectAxisLabels").val(tableau.extensions.settings.get("axislabel"));			
+			$("#selectAxisLabels").val(tableau.extensions.settings.get("axislabel"));
+			$("#reverseAxisLabels").val(tableau.extensions.settings.get("reverseaxislabel"));
 			$("#selectOpacity").val(tableau.extensions.settings.get("opacity"));
         });
     }
