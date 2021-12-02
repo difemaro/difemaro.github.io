@@ -15,8 +15,8 @@
 
 // Wrap everything in an anonymous function to avoid polluting the global namespace
 (function () {
-  const defaultIntervalInMin = '5';
-  let interval2 = '5'
+  const defaultIntervalInMin = '15';
+  let interval2 = '15'
   let refreshInterval;
   let activeDatasourceIdList = [];
 
