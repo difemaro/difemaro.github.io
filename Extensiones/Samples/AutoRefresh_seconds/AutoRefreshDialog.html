@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settings Sample</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+    <!-- Extensions Library (this will be hosted on a CDN eventually) -->
+    <script src="../../lib/tableau.extensions.1.latest.js"></script>
+
+    <!-- Our extension's code -->
+    <script src="./AutoRefreshDialog.js"></script>
+  </head>
+  <body>
+    <div class="container">
+		<table style="margin-bottom:0px">
+		<tbody>
+		<tr>
+			<td style="vertical-align:middle;">
+				<img src="http://www.modux.co/wp-content/uploads/2016/10/Modux-logo6.png" style="width: 30%; min-width: 150px;vertical-align: middle;">
+			</td>
+			<td style="text-align: right;vertical-align:middle;">
+				<img src="http://www.modux.co/wp-content/uploads/2019/06/TableauPartner.png" alt="Tableau Colombia" style="width: 28%; min-width: 120px;">
+			</td>
+		</tr>
+		</tbody>
+		</table>
+      <h4>Auto Data Source Refresh Extension</h4>
+      <p>
+        This Extension refreshes the selected datasources at the selected interval.
+      </p>
+      <hr />
+
+      <h5>Apply to these datasources: </h5>
+      <div style="margin-left: 14px" id="datasources">
+      </div>
+      <h5>Refresh interval in seconds:</h5>
+      <input style="margin-left: 14px" type="number" id="interval" name="quantity" min="15" max="3600">
+
+      <hr />
+      <button id="closeButton">Start Auto Refresh</button>
+    </div>
+  </body>
+</html>

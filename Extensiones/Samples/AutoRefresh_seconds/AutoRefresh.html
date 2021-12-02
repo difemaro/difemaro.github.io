@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settings Sample</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+    <!-- Extensions Library (this will be hosted on a CDN eventually) -->
+    <script src="../../lib/tableau.extensions.1.latest.js"></script>
+
+    <!-- Our extension's code -->
+    <script src="./AutoRefresh.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <p id="mainContent">
+        <div id="active" style="display: none;">
+          Refreshing <b><span id="datasourceCount">0</span></b> datasource(s) every <b><span id="interval">5</span></b> minutes.
+        </div>
+        <div id="inactive">
+				<table style="margin-bottom:0px">
+				<tbody>
+				<tr>
+					<td style="vertical-align:middle;">
+						<img src="http://www.modux.co/wp-content/uploads/2016/10/Modux-logo6.png" style="width: 30%; min-width: 150px;vertical-align: middle;">
+					</td>
+					<td style="text-align: right;vertical-align:middle;">
+						<img src="http://www.modux.co/wp-content/uploads/2019/06/TableauPartner.png" alt="Tableau Colombia" style="width: 28%; min-width: 120px;">
+					</td>
+				</tr>
+				</tbody>
+				</table>
+          <p>Configure extension to proceed.</p>
+        </div>
+      </p>
+    </div>
+  </body>
+</html>
