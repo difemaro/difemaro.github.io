@@ -7,7 +7,8 @@
 			fetch('https://www.moduxserver.com/metadata/graphql/', {
 			  method: 'POST',
 			  headers: {
-				"X-Tableau-Auth": "TuNljZqrSMWt3ua6uf1hLg|oRTf1ODX5YHiEqpMaLA2NTCll9cNnPkc"
+				"X-Tableau-Auth": "TuNljZqrSMWt3ua6uf1hLg|oRTf1ODX5YHiEqpMaLA2NTCll9cNnPkc",
+				"Access-Control-Allow-Origin" : "*"
 			},
 			  body: JSON.stringify({
 				query: `
