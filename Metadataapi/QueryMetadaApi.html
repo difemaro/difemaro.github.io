@@ -4,10 +4,10 @@
         <title>getData() Basic Example</title>
 		<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
         <script type="text/javascript">
-			fetch('TuNljZqrSMWt3ua6uf1hLg|oRTf1ODX5YHiEqpMaLA2NTCll9cNnPkc', {
+			fetch('https://www.moduxserver.com/metadata/graphql/', {
 			  method: 'POST',
 			  headers: {
-				"X-Tableau-Auth": "my-cred-token-from/api/3.13/auth/signin"
+				"X-Tableau-Auth": "TuNljZqrSMWt3ua6uf1hLg|oRTf1ODX5YHiEqpMaLA2NTCll9cNnPkc"
 			},
 			  body: JSON.stringify({
 				query: `
@@ -26,6 +26,4 @@
 			
         </script>
     </head>
- 
-
 </html>
