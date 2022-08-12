@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>getData() Basic Example</title>
+		<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+        <script type="text/javascript">
+			fetch('TuNljZqrSMWt3ua6uf1hLg|oRTf1ODX5YHiEqpMaLA2NTCll9cNnPkc', {
+			  method: 'POST',
+			  headers: {
+				"X-Tableau-Auth": "my-cred-token-from/api/3.13/auth/signin"
+			},
+			  body: JSON.stringify({
+				query: `
+				query {
+				  tableauUsers{
+					id
+				  }
+				}
+				`
+			  })
+			})
+			.then(res => res.json())
+			.then(data => {
+			  console.log(data.data)
+			  })
+			
+        </script>
+    </head>
+ 
+
+</html>
