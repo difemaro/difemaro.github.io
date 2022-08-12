@@ -4,26 +4,26 @@
         <title>getData() Basic Example</title>
 		<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
         <script type="text/javascript">
-			fetch('https://www.moduxserver.com/metadata/graphql/', {
-			  method: 'POST',
-			  headers: {
-				"X-Tableau-Auth": "TuNljZqrSMWt3ua6uf1hLg|oRTf1ODX5YHiEqpMaLA2NTCll9cNnPkc",
-				"Access-Control-Allow-Origin" : "*"
-			},
-			  body: JSON.stringify({
-				query: `
-				query {
-				  tableauUsers{
-					id
-				  }
-				}
-				`
-			  })
+			var myHeaders = new Headers();
+			myHeaders.append("X-Tableau-Auth", "TuNljZqrSMWt3ua6uf1hLg|oRTf1ODX5YHiEqpMaLA2NTCll9cNnPkc");
+			myHeaders.append("Accept", "application/xml");
+			myHeaders.append("Content-Type", "application/json");
+
+			var graphql = JSON.stringify({
+			  query: "query ShowMeOneTableCalledOrders{\r\n  tables (filter: {name: \"Orders\"}){\r\n    name\r\n    columns {\r\n      name\r\n    }\r\n  }\r\n}",
+			  variables: {}
 			})
-			.then(res => res.json())
-			.then(data => {
-			  console.log(data.data)
-			  })
+			var requestOptions = {
+			  method: 'POST',
+			  headers: myHeaders,
+			  body: graphql,
+			  redirect: 'follow'
+			};
+
+			fetch("https://www.moduxserver.com/api/metadata/graphql", requestOptions)
+			  .then(response => response.text())
+			  .then(result => console.log(result))
+			  .catch(error => console.log('error', error));
 			
         </script>
     </head>
