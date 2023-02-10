@@ -15,8 +15,10 @@
 	  const urlParams = new URLSearchParams(queryString);
 	  page = urlParams.get('page');
 	  console.log("https://twitter.com/" + page + "?ref_src=twsrc%5Etfw");
-      document.getElementById('hyperlink').href = "https://twitter.com/" + page + "?ref_src=twsrc%5Etfw";  	  
+      document.getElementById('hyperlink').href = "https://twitter.com/" + page + "?ref_src=twsrc%5Etfw";
+	  document.getElementById('hyperlink').innerHTML = "Tweets by @" + page;
 	}
+
 
 </script>
 
