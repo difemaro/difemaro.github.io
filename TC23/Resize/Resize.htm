@@ -1,0 +1,167 @@
+<!doctype <!DOCTYPE html>
+
+<html>
+<head>
+<title>test</title>
+<style type="text/css">
+
+body.noscroll
+
+{
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+</style>
+
+<script type="text/javascript">
+
+	var imgUrl;
+	var imgheight;
+	var imgwidth;
+
+	function getMeta(url, callback) {
+		var img = new Image();
+		img.src = url;
+		img.onload = function() { callback(this.width, this.height); }
+	}
+
+function fn(){
+
+	  document.compatMode=='CSS1Compat'
+	  var queryString = window.location.href;
+	  queryString.replace("#","%23");
+	  queryString = queryString.substring(queryString.indexOf("?"));
+	  console.log(queryString);
+	  const urlParams = new URLSearchParams(queryString);
+	  console.log(urlParams);
+	  imgUrl = urlParams.get('img');
+	  if (imgUrl == ""){
+		imgUrl="https://difemaro.github.io/Resize/no_image.png";
+	  }
+	  console.log(imgUrl);
+	  link = urlParams.get('link');
+	  console.log(link);
+	  target = urlParams.get('target');
+	  background = urlParams.get('color');
+	  console.log(background);
+	  //imgUrl = window.location.search.replace( "?", "" );
+	  //imgUrl = imgUrl.replace("img=","");
+	  if (link){
+		document.getElementById('myLink').href = link;
+	  }
+	  if (target){
+		if (target == "new"){
+			document.getElementById('myLink').target = "_blank";
+		}
+	  }
+	  if (background){
+		document.getElementById('myBody').style.backgroundColor = background;
+	  }
+	  
+	  getMeta(
+		imgUrl,
+		function(width, height) {
+			imgwidth=width; 
+			imgheight=height;
+
+			//window.alert(imgUrl);
+
+			var w = document.body.offsetWidth;
+			var h = document.documentElement.offsetHeight;
+			var h2 = document.body.offsetHeight;
+			var h3 = window.innerHeight;
+
+			if(h < h2) {
+				h = h2;
+			}
+
+			if(h3 != 'undefined' && h < h3) {
+			  h = h3;
+			}
+
+			document.getElementById('myTd').style.height = h+'px';
+
+
+			console.log(w);
+			console.log(imgwidth);
+			console.log(h);
+			console.log(imgheight);
+		    if(imgwidth/w <= imgheight/h) {
+			  w = imgwidth * h/imgheight;
+			}else{
+			  h = imgheight * w/imgwidth;
+			}
+			
+			
+			//window.alert(h3);
+
+			document.getElementById('myImage').src = imgUrl;
+			document.getElementById('myImage').width = w;
+			document.getElementById('myImage').height = h;	  	  
+	    }
+	  );
+	  
+	  
+	}
+
+ 
+
+  window.onresize = function() {
+
+			var w = document.body.offsetWidth;
+			var h = document.documentElement.offsetHeight;
+			var h2 = document.body.offsetHeight;
+			var h3 = window.innerHeight;
+
+			if(h < h2) {
+				h = h2;
+			}
+
+			if(h3 != 'undefined' && h < h3) {
+			  h = h3;
+			}
+
+			document.getElementById('myTd').style.height = h+'px';
+
+
+			console.log(w);
+			console.log(imgwidth);
+			console.log(h);
+			console.log(imgheight);
+		    if(imgwidth/w <= imgheight/h) {
+			  w = imgwidth * h/imgheight;
+			}else{
+			  h = imgheight * w/imgwidth;
+			}
+			
+			
+			//window.alert(h3);
+
+			document.getElementById('myImage').src = imgUrl;
+			document.getElementById('myImage').width = w;
+			document.getElementById('myImage').height = h;	
+			
+
+  }
+
+</script>
+
+</head>
+
+<body onload="fn()" id="myBody" class="noscroll" style="margin:0px;background-color:white;">
+	<table style="width:100%;border-spacing:0px">
+		<tbody>
+			<tr>
+				<td id="myTd" style="text-align:center;padding:0px">
+					<a id="myLink" target="_top" href="">
+						<img src='' id="myImage" alt="Click to open image in new window"/>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
