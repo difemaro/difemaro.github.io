@@ -69,6 +69,13 @@
 			drawChartJS();
 		});
 	}
+	
+	if (worksheet != undefined){
+		unregisterMarkSelectionEventListener = worksheet.addEventListener(tableau.TableauEventType.ParameterChanged, (filterEvent) => {
+			console.log("ListenerParameter");
+			drawChartJS();
+		});
+	}
 
 	
 	// Redraw Listener
