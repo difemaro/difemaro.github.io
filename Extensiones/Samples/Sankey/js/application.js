@@ -77,7 +77,7 @@
                        // When the selection changes, redraw
                        drawChartJS();
                  })
-                 //_unregisterHandlerFunctions.push(unregisterHandlerFunction);
+                 _unregisterHandlerFunctions.push(unregisterHandlerFunction);
              })
         }
 	);
