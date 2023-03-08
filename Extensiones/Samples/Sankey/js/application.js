@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  //let unregisterSettingsEventListener = null;	
+  let unregisterSettingsEventListener = null;	
   let unregisterFilterEventListener = null;
   let unregisterMarkSelectionEventListener = null;
   let worksheet = null;
@@ -9,6 +9,7 @@
   let categoryColumnNumber = null;
   let categoryColumnNumberTo = null;
   let valueColumnNumber = null;
+  let _unregisterHandlerFunctions = null;
 
   $(document).ready(function () {
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
@@ -70,7 +71,7 @@
 		});
 	}
 	
-	//let _unregisterHandlerFunctions = [];
+	_unregisterHandlerFunctions = [];
 	tableau.extensions.dashboardContent.dashboard.getParametersAsync().then(
         function (parameters) {
              parameters.forEach(function (parameter) {
@@ -78,7 +79,7 @@
                        // When the selection changes, redraw
                        drawChartJS();
                  })
-                 //_unregisterHandlerFunctions.push(unregisterHandlerFunction);
+                 _unregisterHandlerFunctions.push(unregisterHandlerFunction);
              })
         }
 	);
