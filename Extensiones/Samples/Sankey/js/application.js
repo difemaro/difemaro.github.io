@@ -70,7 +70,7 @@
 		});
 	}
 	
-	let _unregisterHandlerFunctions = [];
+	//let _unregisterHandlerFunctions = [];
 	tableau.extensions.dashboardContent.dashboard.getParametersAsync().then(
         function (parameters) {
              parameters.forEach(function (parameter) {
@@ -78,7 +78,7 @@
                        // When the selection changes, redraw
                        drawChartJS();
                  })
-                 _unregisterHandlerFunctions.push(unregisterHandlerFunction);
+                 //_unregisterHandlerFunctions.push(unregisterHandlerFunction);
              })
         }
 	);
