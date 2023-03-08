@@ -70,6 +70,7 @@
 		});
 	}
 	
+	_unregisterHandlerFunctions = [];
 	tableau.extensions.dashboardContent.dashboard.getParametersAsync().then(
         function (parameters) {
              parameters.forEach(function (parameter) {
