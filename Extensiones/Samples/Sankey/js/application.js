@@ -70,13 +70,18 @@
 		});
 	}
 	
-	if (worksheet != undefined){
-		unregisterMarkSelectionEventListener = worksheet.addEventListener(tableau.TableauEventType.ParameterChanged, (filterEvent) => {
-			console.log("ListenerParameter");
-			drawChartJS();
-		});
-	}
-
+	tableau.extensions.dashboard.dashboardContent.getParametersAsync().then(
+        function (parameters) {
+             parameters.forEach(function (parameter) {
+                 var unregisterHandlerFunction = parameter.addEventListener(tableau.TableauEventType.ParameterChanged, function (selectionEvent) {
+                       // When the selection changes, redraw
+                       drawChartJS();
+                 })
+                 //_unregisterHandlerFunctions.push(unregisterHandlerFunction);
+             })
+        }
+	);
+	
 	
 	// Redraw Listener
 	if (document.addEventListener) {
