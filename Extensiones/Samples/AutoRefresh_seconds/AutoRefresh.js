@@ -19,6 +19,15 @@
   let interval2 = '15'
   let refreshInterval;
   let activeDatasourceIdList = [];
+  let isPageInFocus = true;
+
+  // Set up event listeners for focus and blur
+  window.onfocus = function () {
+    isPageInFocus = true;
+  };
+  window.onblur = function () {
+    isPageInFocus = false;
+  };
 
   $(document).ready(function () {
     // When initializing an extension, an optional object is passed that maps a special ID (which
@@ -99,17 +108,19 @@
    * by the user.  This interval will refresh all selected datasources.
    */
   function setupRefreshInterval(interval) {
-    refreshInterval = setInterval(function() { 
-      let dashboard = tableau.extensions.dashboardContent.dashboard;
-      dashboard.worksheets.forEach(function (worksheet) {
-        worksheet.getDataSourcesAsync().then(function (datasources) {
-          datasources.forEach(function (datasource) {
-             if (activeDatasourceIdList.indexOf(datasource.id) >= 0) {
-               datasource.refreshAsync();
-             }
+    refreshInterval = setInterval(function() {
+      if (isPageInFocus) {
+        let dashboard = tableau.extensions.dashboardContent.dashboard;
+        dashboard.worksheets.forEach(function (worksheet) {
+          worksheet.getDataSourcesAsync().then(function (datasources) {
+            datasources.forEach(function (datasource) {
+              if (activeDatasourceIdList.indexOf(datasource.id) >= 0) {
+                datasource.refreshAsync();
+              }
+            });
           });
         });
-      });
+      }
     }, interval*1000);
   }
 
