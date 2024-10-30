@@ -43,9 +43,12 @@
 
       let dashboard = tableau.extensions.dashboardContent.dashboard;
       let visibleDatasources = [];
-      let settings = tableau.extensions.settings.getAll();
-      $('#interval').val(settings.intervalkey);
-      
+      if (tableau.extensions.settings.get('configure') == 0) {
+        $('#interval').val(tableau.extensions.settings.get('intervalkey'));
+      } else {
+        $('#interval').val(60);
+      }
+        
       // Load saved selected data sources
       selectedDatasources = parseSettingsForActiveDataSources();
 
@@ -126,6 +129,7 @@
     let currentSettings = tableau.extensions.settings.getAll();
     tableau.extensions.settings.set(datasourcesSettingsKey, JSON.stringify(selectedDatasources));
     tableau.extensions.settings.set(intervalkey, $('#interval').val());
+    tableau.extensions.settings.set(configure, 1);
     tableau.extensions.settings.saveAsync().then((newSavedSettings) => {
     tableau.extensions.ui.closeDialog($('#interval').val());
     });
