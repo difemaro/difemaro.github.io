@@ -154,6 +154,7 @@
   
     // Initial collection of unique data sources and setup of next refresh time
     collectUniqueDataSources().then(() => {
+      $('#uniqueCount').text(uniqueDataSources.length); // Use length for array size
       refreshDataSources(); // Start the refresh cycle after collecting data sources
       updateNextRefreshTime(interval);
     });
