@@ -43,7 +43,7 @@
 
       let dashboard = tableau.extensions.dashboardContent.dashboard;
       let visibleDatasources = [];
-      if (tableau.extensions.settings.get('configure') == 0) {
+      if (tableau.extensions.settings.get('configured') == 0) {
         $('#interval').val(tableau.extensions.settings.get('intervalkey'));
       } else {
         $('#interval').val(60);
@@ -129,7 +129,7 @@
     let currentSettings = tableau.extensions.settings.getAll();
     tableau.extensions.settings.set(datasourcesSettingsKey, JSON.stringify(selectedDatasources));
     tableau.extensions.settings.set(intervalkey, $('#interval').val());
-    tableau.extensions.settings.set(configure, 1);
+    tableau.extensions.settings.set(configured, 1);
     tableau.extensions.settings.saveAsync().then((newSavedSettings) => {
     tableau.extensions.ui.closeDialog($('#interval').val());
     });
