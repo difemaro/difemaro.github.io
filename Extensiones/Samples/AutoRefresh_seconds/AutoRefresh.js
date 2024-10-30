@@ -117,14 +117,17 @@
     // Function to collect unique data sources only once
     function collectUniqueDataSources() {
       let dashboard = tableau.extensions.dashboardContent.dashboard;
-      let collectedDataSources = new Set();
+      let collectedDataSourceIds = new Set();
+      let uniqueDataSources = [];
     
       // Collect promises for retrieving data sources from each worksheet
       let dataSourcePromises = dashboard.worksheets.map((worksheet) =>
         worksheet.getDataSourcesAsync().then((datasources) => {
           datasources.forEach((datasource) => {
-            if (activeDatasourceIdList.includes(datasource.id)) {
-              collectedDataSources.add(datasource); // Add each unique datasource to the Set
+            // Check if the data source is in the active list and hasn't been added yet
+            if (activeDatasourceIdList.includes(datasource.id) && !collectedDataSourceIds.has(datasource.id)) {
+              collectedDataSourceIds.add(datasource.id); // Track unique data source IDs
+              uniqueDataSources.push(datasource); // Add the datasource object once
             }
           });
         })
@@ -132,8 +135,8 @@
     
       // Wait for all worksheet data source retrievals to complete
       return Promise.all(dataSourcePromises).then(() => {
-        uniqueDataSources = Array.from(collectedDataSources); // Convert Set to Array for future use
         console.log(`Collected ${uniqueDataSources.length} unique data sources.`);
+        return uniqueDataSources; // Return the unique data sources array
       });
     }
   
