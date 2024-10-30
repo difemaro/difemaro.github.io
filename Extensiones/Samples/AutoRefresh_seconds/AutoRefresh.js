@@ -104,8 +104,15 @@
       clearInterval(refreshInterval);
     }
   
+    // Function to update the "next refresh" time
+    function updateNextRefreshTime() {
+      const nextRefresh = new Date(Date.now() + interval * 1000);
+      const formattedTime = nextRefresh.toLocaleTimeString(); // Format the time as HH:MM:SS
+      $('#nextrefresh').text(formattedTime); // Display the next refresh time
+    }
+  
     // Set up a new interval with the specified interval time
-    refreshInterval = setInterval(function() { 
+    refreshInterval = setInterval(function() {
       let dashboard = tableau.extensions.dashboardContent.dashboard;
       dashboard.worksheets.forEach(function (worksheet) {
         worksheet.getDataSourcesAsync().then(function (datasources) {
@@ -116,7 +123,13 @@
           });
         });
       });
+      
+      // Update the next refresh time after each refresh
+      updateNextRefreshTime();
     }, interval * 1000); // Convert interval from seconds to milliseconds
+  
+    // Set initial "next refresh" time on interval setup
+    updateNextRefreshTime();
   }
 
   /**
