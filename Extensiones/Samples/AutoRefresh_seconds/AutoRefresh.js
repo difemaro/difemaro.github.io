@@ -114,25 +114,30 @@
   
     // Function to refresh data sources and set the next refresh interval
     function refreshDataSources() {
-      // Clear any existing timeout to prevent overlapping refreshes
       if (refreshInterval) {
         clearTimeout(refreshInterval);
       }
     
       let dashboard = tableau.extensions.dashboardContent.dashboard;
+      let uniqueDataSources = new Set(); // Use a Set to store unique data sources
+    
       dashboard.worksheets.forEach(function (worksheet) {
         worksheet.getDataSourcesAsync().then(function (datasources) {
-          const refreshPromises = datasources.map((datasource) => {
+          datasources.forEach((datasource) => {
             if (activeDatasourceIdList.indexOf(datasource.id) >= 0) {
-              return datasource.refreshAsync();
+              uniqueDataSources.add(datasource); // Add each unique datasource to the Set
             }
           });
     
-          // Wait until all selected data sources are refreshed before setting the next refresh interval
+          // Once all unique data sources are collected, refresh them only once
+          const refreshPromises = Array.from(uniqueDataSources).map((datasource) => {
+            return datasource.refreshAsync();
+          });
+    
+          // Wait until all selected unique data sources are refreshed
           Promise.all(refreshPromises).then(() => {
-            // Set up the next refresh interval only after data sources have been refreshed
             updateNextRefreshTime(interval);
-            refreshInterval = setTimeout(refreshDataSources, interval * 1000); // Schedule next refresh
+            refreshInterval = setTimeout(refreshDataSources, interval * 1000);
           });
         });
       });
@@ -140,6 +145,7 @@
   
     // Initial setup of next refresh time and start refreshing data sources
     refreshDataSources();
+    updateNextRefreshTime(interval);
   }
 
   /**
