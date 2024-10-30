@@ -26,6 +26,7 @@
    */
   const datasourcesSettingsKey = 'selectedDatasources';
   const intervalkey = 'intervalkey';
+  const configured = 'configured'
   let selectedDatasources = [];
 
   $(document).ready(function () {
@@ -43,7 +44,7 @@
 
       let dashboard = tableau.extensions.dashboardContent.dashboard;
       let visibleDatasources = [];
-      if (tableau.extensions.settings.get('configured') == 0) {
+      if (tableau.extensions.settings.get('configured') == 1) {
         $('#interval').val(tableau.extensions.settings.get('intervalkey'));
       } else {
         $('#interval').val(60);
