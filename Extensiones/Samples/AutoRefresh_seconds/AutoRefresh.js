@@ -98,19 +98,20 @@
    * This function sets up a JavaScript interval based on the time interval selected
    * by the user.  This interval will refresh all selected datasources.
    */
+
+  // Function to update the "next refresh" time
+  function updateNextRefreshTime() {
+    const nextRefresh = new Date(Date.now() + interval * 1000);
+    const formattedTime = nextRefresh.toLocaleTimeString(); // Format the time as HH:MM:SS
+    $('#nextrefresh').text(formattedTime); // Display the next refresh time
+  }
+
   function setupRefreshInterval(interval) {
     // Clear any existing timeout to prevent overlapping refreshes
     if (refreshInterval) {
       clearTimeout(refreshInterval);
     }
-  
-    // Function to update the "next refresh" time
-    function updateNextRefreshTime() {
-      const nextRefresh = new Date(Date.now() + interval * 1000);
-      const formattedTime = nextRefresh.toLocaleTimeString(); // Format the time as HH:MM:SS
-      $('#nextrefresh').text(formattedTime); // Display the next refresh time
-    }
-  
+   
     // Function to refresh data sources and set the next refresh interval
     function refreshDataSources() {
       let dashboard = tableau.extensions.dashboardContent.dashboard;
