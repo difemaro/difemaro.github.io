@@ -117,27 +117,24 @@
     // Function to collect unique data sources only once
     function collectUniqueDataSources() {
       let dashboard = tableau.extensions.dashboardContent.dashboard;
-      let collectedDataSourceIds = new Set();
-      let uniqueDataSources = [];
-    
-      // Collect promises for retrieving data sources from each worksheet
+      let uniqueDataSourceIds = new Set(); // Use Set to store unique IDs and avoid duplicates
+      uniqueDataSources = []; // Reset uniqueDataSources array
+  
+      // Array to hold promises for each worksheet's data sources
       let dataSourcePromises = dashboard.worksheets.map((worksheet) =>
         worksheet.getDataSourcesAsync().then((datasources) => {
           datasources.forEach((datasource) => {
-            // Check if the data source is in the active list and hasn't been added yet
-            if (activeDatasourceIdList.includes(datasource.id) && !collectedDataSourceIds.has(datasource.id)) {
-              collectedDataSourceIds.add(datasource.id); // Track unique data source IDs
-              uniqueDataSources.push(datasource); // Add the datasource object once
+            // Only add to uniqueDataSources if the ID is unique
+            if (!uniqueDataSourceIds.has(datasource.id) && activeDatasourceIdList.includes(datasource.id)) {
+              uniqueDataSourceIds.add(datasource.id); // Track ID to avoid duplicates
+              uniqueDataSources.push(datasource); // Store the unique data source
             }
           });
         })
       );
-    
-      // Wait for all worksheet data source retrievals to complete
-      return Promise.all(dataSourcePromises).then(() => {
-        console.log(`Collected ${uniqueDataSources.length} unique data sources.`);
-        return uniqueDataSources; // Return the unique data sources array
-      });
+  
+      // Return a Promise that resolves when all data sources have been collected
+      return Promise.all(dataSourcePromises);
     }
   
     // Function to refresh the previously collected unique data sources
