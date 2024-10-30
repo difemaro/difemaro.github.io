@@ -30,7 +30,7 @@
       // This event allows for the parent extension and popup extension to keep their
       // settings in sync.  This event will be triggered any time a setting is
       // changed for this extension, in the parent or popup (i.e. when settings.saveAsync is called).
-	  getSettings();
+	    getSettings();
 	  
       tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
         updateExtensionBasedOnSettings(settingsEvent.newSettings)
@@ -99,18 +99,24 @@
    * by the user.  This interval will refresh all selected datasources.
    */
   function setupRefreshInterval(interval) {
+    // Clear any existing interval to prevent multiple intervals from running simultaneously
+    if (refreshInterval) {
+      clearInterval(refreshInterval);
+    }
+  
+    // Set up a new interval with the specified interval time
     refreshInterval = setInterval(function() { 
       let dashboard = tableau.extensions.dashboardContent.dashboard;
       dashboard.worksheets.forEach(function (worksheet) {
         worksheet.getDataSourcesAsync().then(function (datasources) {
           datasources.forEach(function (datasource) {
-             if (activeDatasourceIdList.indexOf(datasource.id) >= 0) {
-               datasource.refreshAsync();
-             }
+            if (activeDatasourceIdList.indexOf(datasource.id) >= 0) {
+              datasource.refreshAsync();
+            }
           });
         });
       });
-    }, interval*1000);
+    }, interval * 1000); // Convert interval from seconds to milliseconds
   }
 
   /**
