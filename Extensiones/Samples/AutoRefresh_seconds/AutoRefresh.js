@@ -99,6 +99,8 @@
    * by the user.  This interval will refresh all selected datasources.
    */
 
+  let uniqueDataSources = []; // Store unique data sources globally
+
   function setupRefreshInterval(interval) {
     // Clear any existing timeout to prevent overlapping refreshes
     if (refreshInterval) {
@@ -112,44 +114,49 @@
       $('#nextrefresh').text(formattedTime); // Display the next refresh time
     }
   
-    // Function to refresh data sources and set the next refresh interval
+    // Function to collect unique data sources only once
+    function collectUniqueDataSources() {
+      let dashboard = tableau.extensions.dashboardContent.dashboard;
+      let collectedDataSources = new Set(); // Use a Set to store unique data sources
+  
+      // Collect promises for retrieving data sources from each worksheet
+      let dataSourcePromises = dashboard.worksheets.map((worksheet) =>
+        worksheet.getDataSourcesAsync().then((datasources) => {
+          datasources.forEach((datasource) => {
+            if (activeDatasourceIdList.includes(datasource.id)) {
+              collectedDataSources.add(datasource); // Add each unique datasource to the Set
+            }
+          });
+        })
+      );
+  
+      // Wait until all data sources are gathered and set the uniqueDataSources variable
+      return Promise.all(dataSourcePromises).then(() => {
+        uniqueDataSources = Array.from(collectedDataSources);
+      });
+    }
+  
+    // Function to refresh the previously collected unique data sources
     function refreshDataSources() {
       if (refreshInterval) {
         clearTimeout(refreshInterval);
       }
   
-      let dashboard = tableau.extensions.dashboardContent.dashboard;
-      let uniqueDataSources = new Set(); // Use a Set to store unique data sources
+      // Refresh each unique data source
+      const refreshPromises = uniqueDataSources.map((datasource) => datasource.refreshAsync());
   
-      // Collect all data sources from each worksheet
-      let worksheetPromises = dashboard.worksheets.map((worksheet) => {
-        return worksheet.getDataSourcesAsync().then((datasources) => {
-          datasources.forEach((datasource) => {
-            if (activeDatasourceIdList.indexOf(datasource.id) >= 0) {
-              uniqueDataSources.add(datasource); // Add each unique datasource to the Set
-            }
-          });
-        });
-      });
-  
-      // Wait until all worksheets have been processed
-      Promise.all(worksheetPromises).then(() => {
-        // Refresh each unique data source only once
-        const refreshPromises = Array.from(uniqueDataSources).map((datasource) => {
-          return datasource.refreshAsync();
-        });
-  
-        // Wait until all selected unique data sources are refreshed
-        Promise.all(refreshPromises).then(() => {
-          updateNextRefreshTime(interval);
-          refreshInterval = setTimeout(refreshDataSources, interval * 1000);
-        });
+      // Wait until all selected unique data sources are refreshed
+      Promise.all(refreshPromises).then(() => {
+        updateNextRefreshTime(interval);
+        refreshInterval = setTimeout(refreshDataSources, interval * 1000); // Schedule next refresh
       });
     }
   
-    // Initial setup of next refresh time and start refreshing data sources
-    refreshDataSources();
-    updateNextRefreshTime(interval);
+    // Initial collection of unique data sources and setup of next refresh time
+    collectUniqueDataSources().then(() => {
+      refreshDataSources(); // Start the refresh cycle after collecting data sources
+      updateNextRefreshTime(interval);
+    });
   }
 
   /**
