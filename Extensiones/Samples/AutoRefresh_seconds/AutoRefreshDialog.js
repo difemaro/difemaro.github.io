@@ -43,7 +43,12 @@
 
       let dashboard = tableau.extensions.dashboardContent.dashboard;
       let visibleDatasources = [];
+      let settings = tableau.extensions.settings.getAll();
+      $('#interval').val(settings.intervalkey);
+      
+      // Load saved selected data sources
       selectedDatasources = parseSettingsForActiveDataSources();
+
 
       // Loop through datasources in this sheet and create a checkbox UI 
       // element for each one.  The existing settings are used to 
@@ -122,7 +127,7 @@
     tableau.extensions.settings.set(datasourcesSettingsKey, JSON.stringify(selectedDatasources));
     tableau.extensions.settings.set(intervalkey, $('#interval').val());
     tableau.extensions.settings.saveAsync().then((newSavedSettings) => {
-      tableau.extensions.ui.closeDialog($('#interval').val());
+    tableau.extensions.ui.closeDialog($('#interval').val());
     });
   }
 })();
