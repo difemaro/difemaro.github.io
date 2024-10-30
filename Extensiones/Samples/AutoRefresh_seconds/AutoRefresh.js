@@ -99,9 +99,9 @@
    * by the user.  This interval will refresh all selected datasources.
    */
   function setupRefreshInterval(interval) {
-    // Clear any existing interval to prevent multiple intervals from running simultaneously
+    // Clear any existing timeout to prevent overlapping refreshes
     if (refreshInterval) {
-      clearInterval(refreshInterval);
+      clearTimeout(refreshInterval);
     }
   
     // Function to update the "next refresh" time
@@ -111,25 +111,30 @@
       $('#nextrefresh').text(formattedTime); // Display the next refresh time
     }
   
-    // Set up a new interval with the specified interval time
-    refreshInterval = setInterval(function() {
+    // Function to refresh data sources and set the next refresh interval
+    function refreshDataSources() {
       let dashboard = tableau.extensions.dashboardContent.dashboard;
       dashboard.worksheets.forEach(function (worksheet) {
         worksheet.getDataSourcesAsync().then(function (datasources) {
-          datasources.forEach(function (datasource) {
+          const refreshPromises = datasources.map((datasource) => {
             if (activeDatasourceIdList.indexOf(datasource.id) >= 0) {
-              datasource.refreshAsync();
+              return datasource.refreshAsync();
             }
+          });
+  
+          // Wait until all selected data sources are refreshed before setting the next refresh interval
+          Promise.all(refreshPromises).then(() => {
+            // Set up the next refresh interval only after data sources have been refreshed
+            updateNextRefreshTime();
+            refreshInterval = setTimeout(refreshDataSources, interval * 1000); // Schedule next refresh
           });
         });
       });
-      
-      // Update the next refresh time after each refresh
-      updateNextRefreshTime();
-    }, interval * 1000); // Convert interval from seconds to milliseconds
+    }
   
-    // Set initial "next refresh" time on interval setup
+    // Initial setup of next refresh time and start refreshing data sources
     updateNextRefreshTime();
+    refreshDataSources();
   }
 
   /**
