@@ -31,10 +31,12 @@
       // settings in sync.  This event will be triggered any time a setting is
       // changed for this extension, in the parent or popup (i.e. when settings.saveAsync is called).
 	    getSettings();
-	  
       tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
         updateExtensionBasedOnSettings(settingsEvent.newSettings)
       });
+		  if (tableau.extensions.settings.get("configured") != 1) {
+				configure();
+	    }
     });
   });
 
