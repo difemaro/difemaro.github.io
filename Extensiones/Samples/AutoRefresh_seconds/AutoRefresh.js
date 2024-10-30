@@ -117,28 +117,32 @@
       if (refreshInterval) {
         clearTimeout(refreshInterval);
       }
-    
+  
       let dashboard = tableau.extensions.dashboardContent.dashboard;
       let uniqueDataSources = new Set(); // Use a Set to store unique data sources
-    
-      dashboard.worksheets.forEach(function (worksheet) {
-        worksheet.getDataSourcesAsync().then(function (datasources) {
+  
+      // Collect all data sources from each worksheet
+      let worksheetPromises = dashboard.worksheets.map((worksheet) => {
+        return worksheet.getDataSourcesAsync().then((datasources) => {
           datasources.forEach((datasource) => {
             if (activeDatasourceIdList.indexOf(datasource.id) >= 0) {
               uniqueDataSources.add(datasource); // Add each unique datasource to the Set
             }
           });
-    
-          // Once all unique data sources are collected, refresh them only once
-          const refreshPromises = Array.from(uniqueDataSources).map((datasource) => {
-            return datasource.refreshAsync();
-          });
-    
-          // Wait until all selected unique data sources are refreshed
-          Promise.all(refreshPromises).then(() => {
-            updateNextRefreshTime(interval);
-            refreshInterval = setTimeout(refreshDataSources, interval * 1000);
-          });
+        });
+      });
+  
+      // Wait until all worksheets have been processed
+      Promise.all(worksheetPromises).then(() => {
+        // Refresh each unique data source only once
+        const refreshPromises = Array.from(uniqueDataSources).map((datasource) => {
+          return datasource.refreshAsync();
+        });
+  
+        // Wait until all selected unique data sources are refreshed
+        Promise.all(refreshPromises).then(() => {
+          updateNextRefreshTime(interval);
+          refreshInterval = setTimeout(refreshDataSources, interval * 1000);
         });
       });
     }
