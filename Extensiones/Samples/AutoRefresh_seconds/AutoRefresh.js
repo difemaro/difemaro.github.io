@@ -139,7 +139,6 @@
     }
   
     // Initial setup of next refresh time and start refreshing data sources
-    updateNextRefreshTime(interval);
     refreshDataSources();
   }
 
