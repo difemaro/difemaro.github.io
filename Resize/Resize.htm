@@ -1,128 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>test</title>
-<style type="text/css">
-body.noscroll {
-    position: fixed;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    width: 100%;
-}
-</style>
+    <title>Image Resizer</title>
+    <style>
+        body.noscroll {
+            position: fixed;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            width: 100%;
+        }
+    </style>
+    <script>
+        let imgUrl, imgwidth, imgheight, uniqueId;
 
-<script type="text/javascript">
-	var imgUrl, imgheight, imgwidth, uniqueId;
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
-	function getMeta(url, callback) {
-		var img = new Image();
-		img.src = url;
-		img.onload = function() { callback(this.width, this.height); }
-	}
+        function fn() {
+            uniqueId = getQueryParam('id') || 'default'; 
 
-	function getQueryParam(param) {
-		const urlParams = new URLSearchParams(window.location.search);
-		return urlParams.get(param);
-	}
+            // Select elements using data attributes
+            const imgElement = document.querySelector(`[data-iframe-id="default"]`);
+            const linkElement = document.querySelector(`[data-link-id="default"]`);
+            const tdElement = document.querySelector(`[data-td-id="default"]`);
 
-	function fn() {
-		// Get unique identifier for this iframe instance
-		uniqueId = getQueryParam('id') || 'default'; // Default ID if none is provided
+            if (imgElement) imgElement.setAttribute("data-iframe-id", uniqueId);
+            if (linkElement) linkElement.setAttribute("data-link-id", uniqueId);
+            if (tdElement) tdElement.setAttribute("data-td-id", uniqueId);
 
-		// Select the elements using `data-iframe-id`
-		const imageElement = document.querySelector('[data-iframe-id="default"]');
-		const linkElement = document.querySelector('[data-link-id="default"]');
-		const tdElement = document.querySelector('[data-td-id="default"]');
+            // Update selectors
+            const imageSelector = `[data-iframe-id="${uniqueId}"]`;
+            const linkSelector = `[data-link-id="${uniqueId}"]`;
+            const tdSelector = `[data-td-id="${uniqueId}"]`;
 
-		// Assign the correct `data-iframe-id` dynamically
-		if (imageElement) imageElement.setAttribute("data-iframe-id", uniqueId);
-		if (linkElement) linkElement.setAttribute("data-link-id", uniqueId);
-		if (tdElement) tdElement.setAttribute("data-td-id", uniqueId);
+            imgUrl = getQueryParam('img') || "https://difemaro.github.io/Resize/no_image.png";
+            const img = document.querySelector(imageSelector);
+            const link = document.querySelector(linkSelector);
+            const td = document.querySelector(tdSelector);
 
-		// Build correct selectors
-		const imageSelector = `[data-iframe-id="${uniqueId}"]`;
-		const linkSelector = `[data-link-id="${uniqueId}"]`;
-		const tdSelector = `[data-td-id="${uniqueId}"]`;
+            if (!img) return;
 
-		// Get URL parameters
-		imgUrl = getQueryParam('img') || "https://difemaro.github.io/Resize/no_image.png";
-		let link = getQueryParam('link');
-		let target = getQueryParam('target');
-		let background = getQueryParam('color');
+            img.src = imgUrl; // Set the image URL first
 
-		if (link) document.querySelector(linkSelector).href = link;
-		if (target && target === "new") document.querySelector(linkSelector).target = "_blank";
-		if (background) document.body.style.backgroundColor = background;
+            img.onload = function () {
+                imgwidth = img.naturalWidth;
+                imgheight = img.naturalHeight;
 
-		// Load image metadata and resize
-		getMeta(imgUrl, function(width, height) {
-			imgwidth = width;
-			imgheight = height;
+                if (imgwidth === 0 || imgheight === 0) {
+                    console.warn(`Image ${imgUrl} did not load properly.`);
+                    return;
+                }
 
-			let w = document.body.offsetWidth;
-			let h = document.documentElement.offsetHeight;
-			let h2 = document.body.offsetHeight;
-			let h3 = window.innerHeight;
+                resizeImage(img, td);
+            };
 
-			if (h < h2) h = h2;
-			if (h3 !== 'undefined' && h < h3) h = h3;
+            // Set link attributes if available
+            const linkUrl = getQueryParam('link');
+            if (linkUrl && link) {
+                link.href = linkUrl;
+                if (getQueryParam('target') === "new") {
+                    link.target = "_blank";
+                }
+            }
 
-			document.querySelector(tdSelector).style.height = h + 'px';
+            // Set background color if available
+            const background = getQueryParam('color');
+            if (background) {
+                document.body.style.backgroundColor = background;
+            }
+        }
 
-			if (imgwidth / w <= imgheight / h) {
-				w = imgwidth * h / imgheight;
-			} else {
-				h = imgheight * w / imgwidth;
-			}
+        function resizeImage(img, td) {
+            let w = document.body.offsetWidth;
+            let h = document.documentElement.offsetHeight;
+            let h2 = document.body.offsetHeight;
+            let h3 = window.innerHeight;
 
-			const imageElement = document.querySelector(imageSelector);
-			imageElement.src = imgUrl;
-			imageElement.width = w;
-			imageElement.height = h;
-		});
-	}
+            if (h < h2) h = h2;
+            if (h3 !== 'undefined' && h < h3) h = h3;
 
-	window.onresize = function() {
-		const imageSelector = `[data-iframe-id="${uniqueId}"]`;
-		const tdSelector = `[data-td-id="${uniqueId}"]`;
-		const imageElement = document.querySelector(imageSelector);
+            if (td) {
+                td.style.height = h + 'px';
+            }
 
-		if (!imageElement) return;
+            if (imgwidth / w <= imgheight / h) {
+                w = imgwidth * h / imgheight;
+            } else {
+                h = imgheight * w / imgwidth;
+            }
 
-		let w = document.body.offsetWidth;
-		let h = document.documentElement.offsetHeight;
-		let h2 = document.body.offsetHeight;
-		let h3 = window.innerHeight;
+            img.width = w;
+            img.height = h;
+        }
 
-		if (h < h2) h = h2;
-		if (h3 !== 'undefined' && h < h3) h = h3;
-
-		document.querySelector(tdSelector).style.height = h + 'px';
-
-		if (imgwidth / w <= imgheight / h) {
-			w = imgwidth * h / imgheight;
-		} else {
-			h = imgheight * w / imgwidth;
-		}
-
-		imageElement.width = w;
-		imageElement.height = h;
-	};
-
-</script>
+        // Resize on window resize event
+        window.onresize = function () {
+            const img = document.querySelector(`[data-iframe-id="${uniqueId}"]`);
+            const td = document.querySelector(`[data-td-id="${uniqueId}"]`);
+            if (img && imgwidth && imgheight) {
+                resizeImage(img, td);
+            }
+        };
+    </script>
 </head>
 
 <body onload="fn()" class="noscroll" style="margin:0px;background-color:white;">
-	<table style="width:100%;border-spacing:0px">
-		<tbody>
-			<tr>
-				<td data-td-id="default" style="text-align:center;padding:0px">
-					<a data-link-id="default" target="_top" href="">
-						<img src='' data-iframe-id="default" alt="Click to open image in new window"/>
-					</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+    <table style="width:100%;border-spacing:0px">
+        <tbody>
+            <tr>
+                <td data-td-id="default" style="text-align:center;padding:0px">
+                    <a data-link-id="default" target="_top" href="">
+                        <img src='' data-iframe-id="default" alt="Click to open image in new window"/>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
