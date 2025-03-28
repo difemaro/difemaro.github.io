@@ -27,33 +27,32 @@ body.noscroll {
 
 	function fn() {
 		// Get unique identifier for this iframe instance
-		uniqueId = getQueryParam('id') || 'default'; // Fallback to 'default' if no ID is provided
+		uniqueId = getQueryParam('id') || 'default'; // Default ID if none is provided
 
-		// Construct unique IDs
-		const imageId = `myImage-${uniqueId}`;
-		const linkId = `myLink-${uniqueId}`;
-		const tdId = `myTd-${uniqueId}`;
+		// Select the elements using `data-iframe-id`
+		const imageElement = document.querySelector('[data-iframe-id="default"]');
+		const linkElement = document.querySelector('[data-link-id="default"]');
+		const tdElement = document.querySelector('[data-td-id="default"]');
 
-		// Assign unique IDs dynamically
-		document.getElementById('myImage').id = imageId;
-		document.getElementById('myLink').id = linkId;
-		document.getElementById('myTd').id = tdId;
+		// Assign the correct `data-iframe-id` dynamically
+		if (imageElement) imageElement.setAttribute("data-iframe-id", uniqueId);
+		if (linkElement) linkElement.setAttribute("data-link-id", uniqueId);
+		if (tdElement) tdElement.setAttribute("data-td-id", uniqueId);
 
-		// Get parameters
+		// Build correct selectors
+		const imageSelector = `[data-iframe-id="${uniqueId}"]`;
+		const linkSelector = `[data-link-id="${uniqueId}"]`;
+		const tdSelector = `[data-td-id="${uniqueId}"]`;
+
+		// Get URL parameters
 		imgUrl = getQueryParam('img') || "https://difemaro.github.io/Resize/no_image.png";
-		link = getQueryParam('link');
-		target = getQueryParam('target');
-		background = getQueryParam('color');
+		let link = getQueryParam('link');
+		let target = getQueryParam('target');
+		let background = getQueryParam('color');
 
-		if (link) {
-			document.getElementById(linkId).href = link;
-		}
-		if (target && target === "new") {
-			document.getElementById(linkId).target = "_blank";
-		}
-		if (background) {
-			document.body.style.backgroundColor = background;
-		}
+		if (link) document.querySelector(linkSelector).href = link;
+		if (target && target === "new") document.querySelector(linkSelector).target = "_blank";
+		if (background) document.body.style.backgroundColor = background;
 
 		// Load image metadata and resize
 		getMeta(imgUrl, function(width, height) {
@@ -68,7 +67,7 @@ body.noscroll {
 			if (h < h2) h = h2;
 			if (h3 !== 'undefined' && h < h3) h = h3;
 
-			document.getElementById(tdId).style.height = h + 'px';
+			document.querySelector(tdSelector).style.height = h + 'px';
 
 			if (imgwidth / w <= imgheight / h) {
 				w = imgwidth * h / imgheight;
@@ -76,7 +75,7 @@ body.noscroll {
 				h = imgheight * w / imgwidth;
 			}
 
-			const imageElement = document.getElementById(imageId);
+			const imageElement = document.querySelector(imageSelector);
 			imageElement.src = imgUrl;
 			imageElement.width = w;
 			imageElement.height = h;
@@ -84,9 +83,9 @@ body.noscroll {
 	}
 
 	window.onresize = function() {
-		const imageId = `myImage-${uniqueId}`;
-		const tdId = `myTd-${uniqueId}`;
-		const imageElement = document.getElementById(imageId);
+		const imageSelector = `[data-iframe-id="${uniqueId}"]`;
+		const tdSelector = `[data-td-id="${uniqueId}"]`;
+		const imageElement = document.querySelector(imageSelector);
 
 		if (!imageElement) return;
 
@@ -98,7 +97,7 @@ body.noscroll {
 		if (h < h2) h = h2;
 		if (h3 !== 'undefined' && h < h3) h = h3;
 
-		document.getElementById(tdId).style.height = h + 'px';
+		document.querySelector(tdSelector).style.height = h + 'px';
 
 		if (imgwidth / w <= imgheight / h) {
 			w = imgwidth * h / imgheight;
@@ -117,9 +116,9 @@ body.noscroll {
 	<table style="width:100%;border-spacing:0px">
 		<tbody>
 			<tr>
-				<td id="myTd" style="text-align:center;padding:0px">
-					<a id="myLink" target="_top" href="">
-						<img src='' id="myImage" alt="Click to open image in new window"/>
+				<td data-td-id="default" style="text-align:center;padding:0px">
+					<a data-link-id="default" target="_top" href="">
+						<img src='' data-iframe-id="default" alt="Click to open image in new window"/>
 					</a>
 				</td>
 			</tr>
