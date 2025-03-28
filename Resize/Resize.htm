@@ -8,6 +8,20 @@
             overflow-x: hidden;
             overflow-y: hidden;
             width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-spacing: 0;
+        }
+
+        td {
+            text-align: center;
+            padding: 0;
         }
     </style>
     <script>
@@ -73,26 +87,27 @@
         }
 
         function resizeImage(img, td) {
-            let w = document.body.offsetWidth;
-            let h = document.documentElement.offsetHeight;
-            let h2 = document.body.offsetHeight;
-            let h3 = window.innerHeight;
+            let iframeWidth = window.innerWidth;
+            let iframeHeight = window.innerHeight;
 
-            if (h < h2) h = h2;
-            if (h3 !== 'undefined' && h < h3) h = h3;
-
+            // Ensure td matches the iframe's height exactly
             if (td) {
-                td.style.height = h + 'px';
+                td.style.width = iframeWidth + "px";
+                td.style.height = iframeHeight + "px";
             }
 
-            if (imgwidth / w <= imgheight / h) {
-                w = imgwidth * h / imgheight;
+            // Maintain aspect ratio for the image
+            let newWidth, newHeight;
+            if (imgwidth / iframeWidth <= imgheight / iframeHeight) {
+                newWidth = imgwidth * iframeHeight / imgheight;
+                newHeight = iframeHeight;
             } else {
-                h = imgheight * w / imgwidth;
+                newWidth = iframeWidth;
+                newHeight = imgheight * iframeWidth / imgwidth;
             }
 
-            img.width = w;
-            img.height = h;
+            img.width = newWidth;
+            img.height = newHeight;
         }
 
         // Resize on window resize event
@@ -106,11 +121,11 @@
     </script>
 </head>
 
-<body onload="fn()" class="noscroll" style="margin:0px;background-color:white;">
-    <table style="width:100%;border-spacing:0px">
+<body onload="fn()" class="noscroll">
+    <table>
         <tbody>
             <tr>
-                <td data-td-id="default" style="text-align:center;padding:0px">
+                <td data-td-id="default">
                     <a data-link-id="default" target="_top" href="">
                         <img src='' data-iframe-id="default" alt="Click to open image in new window"/>
                     </a>
